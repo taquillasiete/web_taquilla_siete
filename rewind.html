@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taquilla Siete Rewind — Taquilla Siete</title>
+<meta name="description" content="Taquilla Siete Rewind: proyecciones con coloquio que dan contexto histórico a la cartelera actual.">
+<link rel="icon" href="assets/logos/taquilla-siete-logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="assets/logos/logo-marino.png" alt="Logo Taquilla Siete">
+      <span>Taquilla Siete</span>
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menú">☰</button>
+    <nav class="nav-links">
+      <a href="index.html#historia">Club</a>
+      <a href="index.html#actividades">Actividades</a>
+      <a href="invitados.html">Invitados</a>
+      <a href="index.html#calendario">Calendario</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<section class="actividad-hero">
+  <div class="wrap">
+    <p class="eyebrow">Proyección y coloquio</p>
+    <h1>Taquilla Siete Rewind</h1>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="reveal media-cuerpo" style="margin-bottom:3rem;">
+      <figure class="media-foto media-foto--logo" style="--ratio: 2/1;">
+        <img src="assets/logos/rewind.png" alt="Logo de Taquilla Siete Rewind">
+      </figure>
+    </div>
+    <div class="actividad-cuerpo reveal">
+      <p>Taquilla Siete Rewind son proyecciones de cine con presentación y coloquio, pensadas para complementar la cartelera actual.</p>
+      <p>En cada pase rescatamos una película que sirve de referente o comparte camino con algún estreno del momento: para entender qué se hizo antes, y ver con otros ojos lo que hoy nos puede parecer novedoso.</p>
+      <p>Es nuestra forma de dar contexto histórico y acercar el cine más clásico a las nuevas generaciones.</p>
+      <p>Pronto anunciaremos las primeras fechas y los cines donde nos verás: estate atento a <a href="https://www.instagram.com/taquillasiete/" target="_blank" rel="noopener">Instagram</a> y al <a href="index.html#calendario">calendario del club</a>.</p>
+      <a class="volver" href="index.html#actividades">← Volver a actividades</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© <span id="anio"></span> Taquilla Siete — Club de Cine</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>document.getElementById("anio").textContent = new Date().getFullYear();</script>
+</body>
+</html>

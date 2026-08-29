@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taquilla Siete Live — Taquilla Siete</title>
+<meta name="description" content="Taquilla Siete Live: eventos en directo y participativos en Sala Picnic, Madrid.">
+<link rel="icon" href="assets/logos/taquilla-siete-logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="assets/logos/logo-marino.png" alt="Logo Taquilla Siete">
+      <span>Taquilla Siete</span>
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menú">☰</button>
+    <nav class="nav-links">
+      <a href="index.html#historia">Club</a>
+      <a href="index.html#actividades">Actividades</a>
+      <a href="invitados.html">Invitados</a>
+      <a href="index.html#calendario">Calendario</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<section class="actividad-hero">
+  <div class="wrap">
+    <p class="eyebrow">En directo · Sala Picnic, Madrid</p>
+    <h1>Taquilla Siete Live</h1>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="reveal media-cuerpo" style="margin-bottom:3rem;">
+      <figure class="media-foto media-foto--logo" style="--ratio: 2/1;">
+        <img src="assets/logos/live.png" alt="Logo de Taquilla Siete Live">
+      </figure>
+    </div>
+    <div class="actividad-cuerpo reveal">
+      <p>Todos tenemos películas que no se nos olvidan: la que nos hizo querer el cine, la que llegó en el momento justo, la que defendemos contra viento y marea. Taquilla Siete Live va de eso — y de atreverse a subir a un escenario a contarlo.</p>
+      <p>Nos juntamos en la Sala Picnic, en Madrid, y el micrófono es de quien lo quiera: no hace falta ser experto ni traer nada preparado. Subes, nos hablas de tu película, la comentamos juntos entre risas y confesiones, y el escenario queda listo para la siguiente historia.</p>
+      <p>Y si prefieres quedarte en la butaca, también vale: escuchar a alguien defender la película de su vida es la otra mitad del plan. Las próximas fechas las anunciamos en <a href="https://www.instagram.com/taquillasiete/" target="_blank" rel="noopener">Instagram</a> y en el <a href="index.html#calendario">calendario del club</a>.</p>
+      <a class="volver" href="index.html#actividades">← Volver a actividades</a>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">La dinámica</span>
+      <h2>Cómo funciona un Live</h2>
+      <p>Nadie viene con guion: la noche la construye el público.</p>
+    </div>
+    <div class="pasos reveal">
+      <div class="paso">
+        <span class="paso-num">1</span>
+        <p><strong>Propón</strong>: escanea el QR de la sala y dinos una película relacionada con la temática de la noche.</p>
+      </div>
+      <div class="paso">
+        <span class="paso-num">2</span>
+        <p><strong>Cruza los dedos</strong>: entre todas las propuestas, vamos sacando algunas al azar.</p>
+      </div>
+      <div class="paso">
+        <span class="paso-num">3</span>
+        <p><strong>Sube al escenario</strong>: si sale la tuya, nos cuentas tu película y tu experiencia con ella.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Próximo evento</span>
+      <h2>Películas por las que amo el Cine</h2>
+      <p>Domingo 20 de septiembre, 19:00h — Bar Picnic (C/ Minas 1, Madrid). Entrada: 5€ con consumición.</p>
+    </div>
+    <div class="cartel reveal">
+      <img src="assets/img/live/carteles/cartel-2026-09-20.png" alt="Cartel del primer Taquilla Siete Live: cinefórum participativo «Películas por las que amo el Cine». Domingo 20 de septiembre, 19:00h, Bar Picnic, C/ Minas 1, Madrid. Entrada 5€ con consumición.">
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© <span id="anio"></span> Taquilla Siete — Club de Cine</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>document.getElementById("anio").textContent = new Date().getFullYear();</script>
+</body>
+</html>
