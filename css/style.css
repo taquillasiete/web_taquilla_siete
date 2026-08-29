@@ -23,6 +23,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -641,6 +642,7 @@ section {
 
 .redes {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 1.5rem;
   margin-top: 1rem;
@@ -759,5 +761,9 @@ section {
 
   .calendario-marco {
     aspect-ratio: 3 / 4;
+  }
+
+  .redes {
+    gap: 0.8rem;
   }
 }
