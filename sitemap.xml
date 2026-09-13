@@ -21,7 +21,11 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://taquillasiete.com/criticas.html</loc>
+    <loc>https://taquillasiete.com/la-mirada.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://taquillasiete.com/actualidad.html</loc>
     <priority>0.6</priority>
   </url>
 </urlset>

@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /actualidad/plantilla.html
 
 Sitemap: https://taquillasiete.com/sitemap.xml

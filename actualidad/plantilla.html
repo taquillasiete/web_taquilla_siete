@@ -1,0 +1,109 @@
+<!--
+  PLANTILLA — no publicar esta página tal cual.
+  Para una nueva entrada de Actualidad: duplica este archivo dentro de la carpeta
+  "actualidad/", ponle un nombre corto sin espacios (p. ej. "nombre-pelicula.html"),
+  y rellena todos los huecos entre corchetes [ASÍ]. Después:
+    1. Añade la tarjeta correspondiente en ../actualidad.html (dentro de .actualidad-lista,
+       quitando el <p class="vacio"> si es la primera entrada).
+    2. Añade la URL nueva a ../sitemap.xml.
+  No enlaces esta plantilla desde ningún sitio ni la subas a producción.
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[Título de la película] — Taquilla Siete</title>
+<meta name="description" content="[Una frase de una línea sobre la reseña, para buscadores y redes.]">
+<link rel="canonical" href="https://taquillasiete.com/actualidad/[nombre-pelicula].html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Taquilla Siete">
+<meta property="og:locale" content="es_ES">
+<meta property="og:url" content="https://taquillasiete.com/actualidad/[nombre-pelicula].html">
+<meta property="og:title" content="[Título de la película] — Taquilla Siete">
+<meta property="og:description" content="[Una frase de una línea sobre la reseña, para buscadores y redes.]">
+<meta property="og:image" content="https://taquillasiete.com/assets/img/actualidad/[cartel-pelicula].jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="[Título de la película] — Taquilla Siete">
+<meta name="twitter:description" content="[Una frase de una línea sobre la reseña, para buscadores y redes.]">
+<meta name="twitter:image" content="https://taquillasiete.com/assets/img/actualidad/[cartel-pelicula].jpg">
+<link rel="icon" href="../assets/logos/taquilla-siete-logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css?v=3">
+<script data-goatcounter="https://taquillasiete.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Review",
+  "itemReviewed": { "@type": "Movie", "name": "[Título de la película]", "director": { "@type": "Person", "name": "[Director/a]" }, "datePublished": "[Año de estreno]" },
+  "author": { "@type": "Person", "name": "[Nombre de quien escribe]" },
+  "publisher": { "@type": "Organization", "name": "Taquilla Siete" },
+  "reviewBody": "[Una frase-resumen de la reseña.]"
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <img src="../assets/logos/logo-marino.png" alt="Logo Taquilla Siete">
+      <span>Taquilla Siete</span>
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menú">☰</button>
+    <nav class="nav-links">
+      <a href="../index.html#historia">Club</a>
+      <a href="../index.html#actividades">Actividades</a>
+      <a href="../index.html#calendario">Calendario</a>
+      <a href="../index.html#contacto">Contacto</a>
+      <span class="nav-separador" aria-hidden="true"></span>
+      <a href="../invitados.html">Invitados</a>
+      <a href="../la-mirada.html">La mirada de…</a>
+      <a href="../actualidad.html">Actualidad</a>
+    </nav>
+  </div>
+</header>
+
+<section class="actividad-hero">
+  <div class="wrap">
+    <p class="eyebrow">Actualidad</p>
+    <h1>[Título de la película]</h1>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cartel reveal" style="margin-bottom:3rem;">
+      <img src="../assets/img/actualidad/[cartel-pelicula].jpg" alt="Cartel de [Título de la película]">
+    </div>
+
+    <div class="criticas-lista">
+      <article class="critica reveal">
+        <span class="critica-kicker">[Nombre de quien escribe]</span>
+        <p class="critica-meta">[Director/a] · [Año de estreno]</p>
+        <div class="critica-cuerpo">
+          <p>[Primer párrafo de la reseña.]</p>
+          <p>[Más párrafos según haga falta — el texto se parte solo en dos columnas en pantallas grandes.]</p>
+        </div>
+        <p class="nota-prensa">[Opcional: "Vista en preestreno gracias a un pase de prensa." — bórralo si no aplica.]</p>
+      </article>
+    </div>
+
+    <div class="actividad-cuerpo reveal" style="margin-top:3rem;">
+      <a class="volver" href="../actualidad.html">← Volver</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© <span id="anio"></span> Taquilla Siete — Club de Cine</p>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>document.getElementById("anio").textContent = new Date().getFullYear();</script>
+</body>
+</html>
