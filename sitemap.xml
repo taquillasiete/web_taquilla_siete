@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://taquillasiete.com/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://taquillasiete.com/sesiones.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://taquillasiete.com/live.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://taquillasiete.com/rewind.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://taquillasiete.com/invitados.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://taquillasiete.com/criticas.html</loc>
+    <priority>0.6</priority>
+  </url>
+</urlset>
