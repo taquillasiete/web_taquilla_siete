@@ -518,7 +518,7 @@ section {
   }
 }
 
-/* Índice rápido (arriba de La mirada de... y Actualidad) */
+/* Índice rápido (arriba de Miradas y Actualidad) */
 .indice-entradas {
   display: flex;
   flex-wrap: wrap;

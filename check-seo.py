@@ -43,8 +43,10 @@ def check_file(path: Path) -> list[str]:
     return problems
 
 def main() -> int:
+    # Las páginas de redirección (meta refresh, p. ej. criticas.html) no son contenido real
     html_files = sorted(
-        p for p in ROOT.glob("*.html") if p.name not in SKIP
+        p for p in ROOT.glob("*.html")
+        if p.name not in SKIP and 'http-equiv="refresh"' not in p.read_text(encoding="utf-8")
     )
     sitemap_text = (ROOT / "sitemap.xml").read_text(encoding="utf-8") if (ROOT / "sitemap.xml").exists() else ""
     sitemap_locs = set(re.findall(r"<loc>(.*?)</loc>", sitemap_text))
