@@ -39,3 +39,9 @@ img = Image.open("ruta/original.jpg")
 img.save("ruta/original.webp", "WEBP", quality=82, method=6)
 ```
 Actualiza luego todas las referencias (`<img src>`, `og:image`, JSON-LD) al nuevo `.webp` y borra el fichero original.
+
+## Al publicar (commit + push)
+
+1. **Antes del commit**: `python actualiza-sitemap.py` — pone en cada URL del `sitemap.xml` su `<lastmod>` (fecha del último cambio en git, o hoy si tiene cambios sin comitear). Luego `python check-seo.py`.
+2. **Después del push**, cuando GitHub Pages haya desplegado (1-2 min; comprueba con `curl` que una página cambiada ya sirve la versión nueva): `python indexnow.py` — avisa a Bing vía IndexNow de las páginas HTML cambiadas en el último commit (`--todas` para todo el sitemap, o pasa rutas concretas). Google no usa IndexNow: para algo urgente, el usuario pide la indexación a mano en Search Console.
+3. El fichero `<32 hex>.txt` de la raíz es la clave de IndexNow: no lo borres ni lo renombres.
