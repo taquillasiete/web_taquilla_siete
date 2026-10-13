@@ -50,6 +50,7 @@ def main() -> int:
         urls = [
             url_de(f) for f in cambiados
             if f.endswith(".html") and Path(f).name not in SKIP and (ROOT / f).exists()
+            and 'content="noindex"' not in (ROOT / f).read_text(encoding="utf-8")  # páginas ocultas
         ]
 
     if not urls:

@@ -1,0 +1,39 @@
+{
+  "actualizado": "2026-10-13T16:04:58+00:00",
+  "eventos": [
+    {
+      "tipo": "rewind",
+      "titulo": "The Chaser (Na Hong Jin, 2008)",
+      "inicio": "2026-10-17T11:45",
+      "lugar": "Cines Embajadores Río",
+      "cartel": "assets/img/rewind/carteles/cartel-2026-10-17.webp",
+      "entradas": "https://cinesembajadores.es/pelicula/the-chaser-vose/?ciudad=madrid"
+    },
+    {
+      "tipo": "live",
+      "titulo": "Películas para no dormir",
+      "inicio": "2026-10-18T19:00",
+      "lugar": "Bar Picnic (C/ Minas 1)",
+      "cartel": "assets/img/live/carteles/cartel-2026-10-18.webp",
+      "entradas": "https://www.eventbrite.com/e/taquilla-siete-live-peliculas-para-no-dormir-tickets-2002327796340"
+    },
+    {
+      "tipo": "sesion",
+      "titulo": "Desaparecida (1988) con Invitado",
+      "inicio": "2026-10-21T19:00",
+      "lugar": "Lolina Vintage Café"
+    },
+    {
+      "tipo": "sesion",
+      "titulo": "Rocky Horror Picture Show (1975)",
+      "inicio": "2026-11-04T19:00",
+      "lugar": "Lolina Vintage Café"
+    },
+    {
+      "tipo": "sesion",
+      "titulo": "Sesión especial WritersWeekend. Bailame el agua (2000) con Josecho San Mateo",
+      "inicio": "2026-11-17T19:00",
+      "lugar": "Lolina Vintage Café"
+    }
+  ]
+}

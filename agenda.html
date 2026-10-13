@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Página oculta (QR en bares): sin enlaces desde la web, fuera del sitemap y noindex. -->
+<meta name="robots" content="noindex">
+<title>Próximas actividades — Taquilla Siete</title>
+<meta name="description" content="Próximas actividades de Taquilla Siete, club de cine en Madrid: Sesiones, Live y Rewind.">
+<link rel="canonical" href="https://taquillasiete.com/agenda.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Taquilla Siete">
+<meta property="og:locale" content="es_ES">
+<meta property="og:url" content="https://taquillasiete.com/agenda.html">
+<meta property="og:title" content="Próximas actividades — Taquilla Siete">
+<meta property="og:description" content="Próximas actividades de Taquilla Siete, club de cine en Madrid: Sesiones, Live y Rewind.">
+<meta property="og:image" content="https://taquillasiete.com/assets/logos/taquilla-siete-logo.jpg">
+<meta property="og:image:width" content="1080">
+<meta property="og:image:height" content="1080">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Próximas actividades — Taquilla Siete">
+<meta name="twitter:description" content="Próximas actividades de Taquilla Siete, club de cine en Madrid: Sesiones, Live y Rewind.">
+<meta name="twitter:image" content="https://taquillasiete.com/assets/logos/taquilla-siete-logo.jpg">
+<link rel="icon" href="assets/logos/taquilla-siete-logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=4">
+<script data-goatcounter="https://taquillasiete.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Taquilla Siete",
+  "alternateName": "Taquilla Siete — Club de Cine",
+  "url": "https://taquillasiete.com/",
+  "logo": "https://taquillasiete.com/assets/logos/taquilla-siete-logo.jpg",
+  "description": "Club de cine en Madrid: tertulias quincenales, eventos en directo (Live) y proyecciones con coloquio (Rewind).",
+  "address": { "@type": "PostalAddress", "addressLocality": "Madrid", "addressCountry": "ES" },
+  "sameAs": [
+    "https://www.instagram.com/taquillasiete/",
+    "https://letterboxd.com/danimp5/list/club-de-cine-taquilla-siete/"
+  ]
+}
+</script>
+<style>
+  /* Estilos propios de esta página oculta (landing del QR) */
+  .ag-hero {
+    background: var(--azul-marino);
+    color: var(--azul-claro-suave);
+    text-align: center;
+    padding: 8.5rem 0 3.5rem;
+  }
+  .ag-hero img { width: 92px; margin: 0 auto 1.2rem; }
+  .ag-hero .eyebrow { color: var(--azul-claro); font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.8rem; }
+  .ag-hero h1 { color: var(--blanco); font-size: clamp(2.2rem, 7vw, 3.6rem); line-height: 1.1; }
+  .ag-hero .tagline { margin-top: 1rem; font-size: clamp(1rem, 3.6vw, 1.2rem); color: var(--azul-claro-suave); }
+  .ag-saltos { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; margin-top: 2rem; }
+  .ag-saltos a {
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em;
+    padding: 0.45rem 1rem; border-radius: 999px;
+    border: 1px solid rgba(196, 220, 227, 0.4); color: var(--azul-claro-suave);
+  }
+  .ag-saltos a:hover { background: var(--azul-claro); color: var(--azul-marino); border-color: var(--azul-claro); }
+
+  .ag-eventos { padding: 4rem 0 2rem; }
+  .ag-evento {
+    display: grid;
+    grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
+    gap: 3.5rem;
+    align-items: center;
+    max-width: 980px;
+    margin: 0 auto 5rem;
+    scroll-margin-top: 110px;
+  }
+  .ag-evento:nth-child(even) { grid-template-columns: minmax(0, 1fr) minmax(0, 420px); }
+  .ag-evento:nth-child(even) .ag-cartel { order: 2; }
+  .ag-cartel img, .ag-cartel-sesion {
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 30px 60px -28px rgba(38, 56, 78, 0.55);
+  }
+  .ag-cartel a { display: block; transition: transform var(--transicion); }
+  .ag-cartel a:hover { transform: translateY(-6px); }
+
+  /* Cartel tipográfico para las Sesiones (no tienen cartel propio) */
+  .ag-cartel-sesion {
+    aspect-ratio: 4 / 5;
+    background:
+      radial-gradient(120% 80% at 100% 0%, rgba(156, 192, 204, 0.28), transparent 60%),
+      var(--azul-marino);
+    color: var(--azul-claro-suave);
+    padding: 9% 9% 8%;
+    display: flex;
+    flex-direction: column;
+  }
+  .ag-cartel-sesion .cs-cabecera { display: flex; align-items: center; gap: 0.8rem; }
+  .ag-cartel-sesion .cs-cabecera img { width: 22%; }
+  .ag-cartel-sesion .cs-club { font-size: clamp(0.7rem, 2.6vw, 0.85rem); letter-spacing: 0.18em; text-transform: uppercase; line-height: 1.5; }
+  .ag-cartel-sesion .cs-club strong { display: block; color: var(--blanco); letter-spacing: 0.06em; font-size: 1.25em; text-transform: none; }
+  .ag-cartel-sesion .cs-cuerpo { margin-top: auto; }
+  .ag-cartel-sesion .cs-etiqueta {
+    display: inline-block; background: var(--azul-claro); color: var(--azul-marino);
+    font-weight: 700; font-size: clamp(0.65rem, 2.4vw, 0.78rem); letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 0.35rem 0.8rem; margin-bottom: 1rem;
+  }
+  .ag-cartel-sesion .cs-titulo { font-family: var(--font-titulo); color: var(--blanco); font-weight: 700; font-size: clamp(1.9rem, 8vw, 2.9rem); line-height: 1.05; }
+  .ag-cartel-sesion .cs-extra { font-family: var(--font-titulo); font-style: italic; font-size: clamp(1rem, 4vw, 1.3rem); margin-top: 0.5rem; }
+  .ag-cartel-sesion .cs-pie {
+    margin-top: 1.6rem; padding-top: 1.1rem; border-top: 1px solid rgba(196, 220, 227, 0.35);
+    display: flex; justify-content: space-between; gap: 1rem; font-size: clamp(0.75rem, 2.8vw, 0.9rem); line-height: 1.4;
+  }
+  .ag-cartel-sesion .cs-pie strong { color: var(--blanco); display: block; font-size: 1.15em; }
+
+  .ag-chip {
+    display: inline-block;
+    background: var(--azul-claro);
+    color: var(--azul-marino);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    margin-bottom: 1.1rem;
+  }
+  .ag-tipo { display: block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--azul-marino-suave); margin-bottom: 0.5rem; }
+  .ag-info h2 { font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.1; margin-bottom: 1.4rem; }
+  .ag-datos { list-style: none; display: grid; gap: 0.7rem; margin-bottom: 1.4rem; }
+  .ag-datos li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 1.02rem; color: var(--azul-marino); }
+  .ag-datos li:first-child { font-weight: 700; }
+  .ag-datos svg { flex: none; width: 20px; height: 20px; margin-top: 0.15rem; stroke: var(--azul-marino-suave); }
+  .ag-desc { color: var(--azul-marino-suave); margin-bottom: 1.8rem; max-width: 46ch; }
+  .ag-botones { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+  .ag-btn {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    padding: 0.85rem 1.5rem; border-radius: 999px;
+    font-weight: 700; font-size: 0.9rem; letter-spacing: 0.02em;
+    border: 1.5px solid var(--azul-marino);
+    transition: background var(--transicion), color var(--transicion), transform var(--transicion);
+  }
+  .ag-btn--primario { background: var(--azul-marino); color: var(--blanco); }
+  .ag-btn--primario:hover { background: var(--azul-marino-suave); transform: translateY(-2px); }
+  .ag-btn--secundario { color: var(--azul-marino); }
+  .ag-btn--secundario:hover { background: var(--azul-marino); color: var(--blanco); }
+
+  /* Calendario */
+  .calendario-mini {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 340px));
+    justify-content: center;
+    gap: 2rem 3rem;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .mes h3 { font-size: 1.15rem; text-align: center; margin-bottom: 0.8rem; }
+  .mes-rejilla { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; text-align: center; }
+  .mes-rejilla .dsem { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; color: var(--azul-marino-suave); padding-bottom: 0.3rem; }
+  .mes-rejilla .dia { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.9rem; color: var(--azul-marino-suave); }
+  .mes-rejilla a.dia { cursor: pointer; transition: transform var(--transicion); }
+  .mes-rejilla a.dia:hover { transform: scale(1.12); }
+  .mes-rejilla .dia.pasado { opacity: 0.35; }
+  .mes-rejilla .dia.hoy { box-shadow: inset 0 0 0 2px var(--azul-marino); font-weight: 700; color: var(--azul-marino); }
+  .mes-rejilla .dia.evento { background: var(--tipo); color: var(--blanco); font-weight: 700; }
+  .mes-rejilla .dia.evento.tipo-live { color: var(--azul-marino); }
+  .tipo-sesion { --tipo: var(--azul-marino); }
+  .tipo-live { --tipo: var(--azul-claro); }
+  .tipo-rewind { --tipo: #5F8197; }
+  .leyenda { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem 1.4rem; margin-top: 1.8rem; font-size: 0.85rem; color: var(--azul-marino-suave); }
+  .leyenda span { display: inline-flex; align-items: center; gap: 0.45rem; }
+  .leyenda i { width: 0.9rem; height: 0.9rem; border-radius: 50%; background: var(--tipo); display: inline-block; }
+  .leyenda i.hoy { background: none; box-shadow: inset 0 0 0 2px var(--azul-marino); }
+
+  /* Cierre */
+  .ag-cierre { background: var(--azul-marino); color: var(--azul-claro-suave); text-align: center; }
+  .ag-cierre h2 { color: var(--blanco); font-size: clamp(1.8rem, 5vw, 2.4rem); margin-bottom: 0.8rem; }
+  .ag-cierre p { max-width: 52ch; margin: 0 auto 2rem; }
+  .ag-cierre .ag-botones { justify-content: center; }
+  .ag-cierre .ag-btn--primario { background: var(--azul-claro); color: var(--azul-marino); border-color: var(--azul-claro); }
+  .ag-cierre .ag-btn--primario:hover { background: var(--azul-claro-suave); }
+  .ag-cierre .ag-btn--secundario { color: var(--azul-claro-suave); border-color: rgba(196, 220, 227, 0.5); }
+  .ag-cierre .ag-btn--secundario:hover { background: var(--azul-claro-suave); color: var(--azul-marino); }
+
+  @media (max-width: 760px) {
+    .ag-hero { padding: 7.5rem 0 2.8rem; }
+    .ag-eventos { padding-top: 2.5rem; }
+    .ag-evento, .ag-evento:nth-child(even) { grid-template-columns: 1fr; gap: 1.8rem; margin-bottom: 4rem; }
+    .ag-evento:nth-child(even) .ag-cartel { order: 0; }
+    .ag-cartel { max-width: 420px; width: 100%; margin: 0 auto; }
+    .ag-btn { flex: 1 1 auto; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="assets/logos/logo-marino.png" alt="Logo Taquilla Siete">
+      <span>Taquilla Siete</span>
+    </a>
+    <button class="nav-toggle" aria-label="Abrir menú">☰</button>
+    <nav class="nav-links">
+      <a href="index.html#historia">Club</a>
+      <a href="index.html#actividades">Actividades</a>
+      <a href="index.html#calendario">Calendario</a>
+      <a href="index.html#contacto">Contacto</a>
+      <span class="nav-separador" aria-hidden="true"></span>
+      <a href="invitados.html">Invitados</a>
+      <a href="la-mirada.html">Miradas</a>
+      <a href="actualidad.html">Actualidad</a>
+    </nav>
+  </div>
+</header>
+
+<section class="ag-hero">
+  <div class="wrap">
+    <img src="assets/logos/logo-claro.png" alt="Logo Taquilla Siete">
+    <p class="eyebrow">Club de cine en Madrid</p>
+    <h1>Lo próximo en<br>Taquilla Siete</h1>
+    <p class="tagline">El cine nos encanta; compartirlo, más.</p>
+    <nav class="ag-saltos" id="ag-saltos" aria-label="Ir a cada actividad"></nav>
+  </div>
+</section>
+
+<section class="ag-eventos">
+  <div class="wrap" id="ag-lista"></div>
+  <div class="wrap">
+    <p class="vacio" id="agenda-vacia" hidden>Estamos preparando las próximas actividades. Las anunciamos en <a href="https://www.instagram.com/taquillasiete/" target="_blank" rel="noopener">Instagram</a>.</p>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Calendario</span>
+      <h2>Apúntatelo</h2>
+    </div>
+    <div class="calendario-mini" id="calendario-mini"></div>
+    <div class="leyenda">
+      <span><i class="hoy"></i>Hoy</span>
+      <span class="tipo-sesion"><i></i>Sesión</span>
+      <span class="tipo-live"><i></i>Live</span>
+      <span class="tipo-rewind"><i></i>Rewind</span>
+    </div>
+  </div>
+</section>
+
+<section class="ag-cierre">
+  <div class="wrap">
+    <h2>Que no te lo cuenten</h2>
+    <p>Taquilla Siete es un club de cine en Madrid: tertulias cada dos semanas en Malasaña, noches de micro abierto y proyecciones con coloquio. Anunciamos todo primero en Instagram.</p>
+    <div class="ag-botones">
+      <a class="ag-btn ag-btn--primario" href="https://www.instagram.com/taquillasiete/" target="_blank" rel="noopener">Síguenos en Instagram</a>
+      <a class="ag-btn ag-btn--secundario" href="index.html">Conoce el club</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© <span id="anio"></span> Taquilla Siete — Club de Cine</p>
+  </div>
+</footer>
+
+<script>
+  /*
+   * Los datos vienen de agenda.json, que genera actualiza-agenda.py (GitHub Action):
+   * próxima Sesión desde el Google Calendar del club, Live y Rewind desde eventos/*.html.
+   * Aquí se muestra solo el siguiente de cada tipo, y cada uno desaparece 3 horas
+   * después de empezar, aunque agenda.json aún no se haya regenerado.
+   */
+  const INSTAGRAM = "https://www.instagram.com/taquillasiete/";
+  const TIPOS = {
+    sesion: {
+      nombre: "Sesión del club", corto: "Sesión", masInfo: "sesiones.html",
+      desc: "Nuestra tertulia de cine: nos sentamos a comentar juntos la película. Las plazas se publican en Instagram el domingo anterior; responde a la story para pedir la tuya."
+    },
+    live: {
+      nombre: "Taquilla Siete Live", corto: "Live", masInfo: "live.html",
+      desc: "Cinefórum participativo: escribe tu película en una tarjeta, la urna decide y, si sale la tuya, subes al escenario a contarla. No hace falta preparar nada."
+    },
+    rewind: {
+      nombre: "Taquilla Siete Rewind", corto: "Rewind", masInfo: "rewind.html",
+      desc: "Presentación, proyección en pantalla grande y coloquio, en colaboración con Cines Embajadores."
+    }
+  };
+  const ORDEN = ["sesion", "live", "rewind"];
+  const DURACION_MS = 3 * 60 * 60 * 1000;
+  const ICONOS = {
+    fecha: '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg>',
+    hora: '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+    lugar: '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>'
+  };
+
+  const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+  const mayus = (t) => t.charAt(0).toUpperCase() + t.slice(1);
+  const fmtDia = new Intl.DateTimeFormat("es-ES", { weekday: "long", day: "numeric", month: "long" });
+  const fmtDiaSem = new Intl.DateTimeFormat("es-ES", { weekday: "long" });
+  const fmtCorto = new Intl.DateTimeFormat("es-ES", { weekday: "short", day: "numeric", month: "short" });
+  const fmtHora = new Intl.DateTimeFormat("es-ES", { hour: "2-digit", minute: "2-digit" });
+  const fmtMes = new Intl.DateTimeFormat("es-ES", { month: "long", year: "numeric" });
+
+  function cuentaAtras(fecha, ahora) {
+    const dias = Math.round((new Date(fecha.getFullYear(), fecha.getMonth(), fecha.getDate()) -
+      new Date(ahora.getFullYear(), ahora.getMonth(), ahora.getDate())) / 86400000);
+    if (dias <= 0) return fecha <= ahora ? "Ahora mismo" : "Hoy";
+    if (dias === 1) return "Mañana";
+    if (dias < 7) return `Este ${fmtDiaSem.format(fecha)}`;
+    return `En ${dias} días`;
+  }
+
+  // "Desaparecida (1988) con Invitado" -> título, año y coletilla para el cartel de la Sesión
+  function partirTitulo(t) {
+    const m = t.match(/^(.*?)\s*\((\d{4})\)\s*(.*)$/);
+    return m ? { titulo: m[1], anio: m[2], extra: m[3] } : { titulo: t, anio: "", extra: "" };
+  }
+
+  function cartelSesion(e) {
+    const p = partirTitulo(e.titulo);
+    return `
+      <div class="ag-cartel-sesion" role="img" aria-label="Cartel de la Sesión: ${esc(e.titulo)}, ${esc(fmtDia.format(e.fecha))}">
+        <div class="cs-cabecera">
+          <img src="assets/logos/logo-claro.png" alt="">
+          <span class="cs-club">Club de cine<strong>Taquilla Siete</strong></span>
+        </div>
+        <div class="cs-cuerpo">
+          <span class="cs-etiqueta">Sesión${p.anio ? " · " + p.anio : ""}</span>
+          <div class="cs-titulo">${esc(p.titulo)}</div>
+          ${p.extra ? `<div class="cs-extra">${esc(p.extra)}</div>` : ""}
+          <div class="cs-pie">
+            <span><strong>${esc(mayus(fmtCorto.format(e.fecha)))}</strong>${esc(fmtHora.format(e.fecha))}h</span>
+            <span style="text-align:right"><strong>${esc(e.lugar)}</strong>Malasaña, Madrid</span>
+          </div>
+        </div>
+      </div>`;
+  }
+
+  function pintar(eventos) {
+    const ahora = new Date();
+    const proximos = eventos
+      .map((e) => ({ ...e, fecha: new Date(e.inicio) }))
+      .filter((e) => e.fecha.getTime() + DURACION_MS > ahora.getTime())
+      .sort((a, b) => a.fecha - b.fecha);
+    const elegidos = ORDEN.map((t) => proximos.find((e) => e.tipo === t)).filter(Boolean)
+      .sort((a, b) => a.fecha - b.fecha);
+
+    const lista = document.getElementById("ag-lista");
+    const saltos = document.getElementById("ag-saltos");
+    elegidos.forEach((e) => {
+      const t = TIPOS[e.tipo];
+      const id = `ag-${e.tipo}`;
+      const primario = e.entradas
+        ? `<a class="ag-btn ag-btn--primario" href="${esc(e.entradas)}" target="_blank" rel="noopener">Comprar entradas →</a>`
+        : e.tipo === "sesion"
+          ? `<a class="ag-btn ag-btn--primario" href="${INSTAGRAM}" target="_blank" rel="noopener">Pide tu plaza en Instagram →</a>`
+          : "";
+      const cartel = e.cartel
+        ? `<a href="${esc(e.entradas || t.masInfo)}"${e.entradas ? ' target="_blank" rel="noopener"' : ""}><img src="${esc(e.cartel)}" alt="Cartel de ${esc(t.nombre)}: ${esc(e.titulo)}" decoding="async"></a>`
+        : cartelSesion(e);
+
+      const art = document.createElement("article");
+      art.className = "ag-evento";
+      art.id = id;
+      art.innerHTML = `
+        <div class="ag-cartel">${cartel}</div>
+        <div class="ag-info">
+          <span class="ag-chip">${esc(cuentaAtras(e.fecha, ahora))}</span>
+          <span class="ag-tipo">${esc(t.nombre)}</span>
+          <h2>${esc(e.titulo)}</h2>
+          <ul class="ag-datos">
+            <li>${ICONOS.fecha}<span>${esc(mayus(fmtDia.format(e.fecha)))}</span></li>
+            <li>${ICONOS.hora}<span>${esc(fmtHora.format(e.fecha))}h</span></li>
+            <li>${ICONOS.lugar}<span>${esc(e.lugar)}, Madrid</span></li>
+          </ul>
+          <p class="ag-desc">${esc(t.desc)}</p>
+          <div class="ag-botones">
+            ${primario}
+            <a class="ag-btn ag-btn--secundario" href="${t.masInfo}">Más info</a>
+          </div>
+        </div>`;
+      lista.appendChild(art);
+
+      const salto = document.createElement("a");
+      salto.href = `#${id}`;
+      salto.textContent = `${t.corto} · ${mayus(fmtCorto.format(e.fecha))}`;
+      saltos.appendChild(salto);
+    });
+    document.getElementById("agenda-vacia").hidden = elegidos.length > 0;
+
+    // Calendario: desde el mes actual hasta el del último evento (máx. 3 meses)
+    const cal = document.getElementById("calendario-mini");
+    const clave = (d) => `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+    const porDia = new Map(elegidos.map((e) => [clave(e.fecha), e]));
+    const ultimo = elegidos.length ? elegidos[elegidos.length - 1].fecha : ahora;
+    const nMeses = Math.min(3, (ultimo.getFullYear() - ahora.getFullYear()) * 12 + ultimo.getMonth() - ahora.getMonth() + 1);
+
+    for (let m = 0; m < Math.max(1, nMeses); m++) {
+      const primero = new Date(ahora.getFullYear(), ahora.getMonth() + m, 1);
+      const diasMes = new Date(primero.getFullYear(), primero.getMonth() + 1, 0).getDate();
+      let html = `<h3>${mayus(fmtMes.format(primero))}</h3><div class="mes-rejilla">`;
+      html += ["L", "M", "X", "J", "V", "S", "D"].map((d) => `<span class="dsem">${d}</span>`).join("");
+      html += "<span></span>".repeat((primero.getDay() + 6) % 7);
+      for (let d = 1; d <= diasMes; d++) {
+        const fecha = new Date(primero.getFullYear(), primero.getMonth(), d);
+        const ev = porDia.get(clave(fecha));
+        const clases = ["dia"];
+        if (clave(fecha) === clave(ahora)) clases.push("hoy");
+        else if (fecha < ahora) clases.push("pasado");
+        if (ev) {
+          clases.push("evento", `tipo-${ev.tipo}`);
+          html += `<a class="${clases.join(" ")}" href="#ag-${ev.tipo}" title="${esc(TIPOS[ev.tipo].nombre)}: ${esc(ev.titulo)}">${d}</a>`;
+        } else {
+          html += `<span class="${clases.join(" ")}">${d}</span>`;
+        }
+      }
+      const mes = document.createElement("div");
+      mes.className = "mes";
+      mes.innerHTML = html + "</div>";
+      cal.appendChild(mes);
+    }
+  }
+
+  fetch(`agenda.json?t=${Date.now()}`)
+    .then((r) => r.json())
+    .then((datos) => pintar(datos.eventos))
+    .catch(() => pintar([]));
+</script>
+<script src="js/main.js"></script>
+<script>document.getElementById("anio").textContent = new Date().getFullYear();</script>
+</body>
+</html>

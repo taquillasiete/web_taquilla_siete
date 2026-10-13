@@ -42,6 +42,16 @@ Actualiza luego todas las referencias (`<img src>`, `og:image`, JSON-LD) al nuev
 
 ## Al publicar (commit + push)
 
+0. **Antes de nada**: `git pull --rebase` — el Action de la agenda hace commits solos en `main`.
 1. **Antes del commit**: `python actualiza-sitemap.py` — pone en cada URL del `sitemap.xml` su `<lastmod>` (fecha del último cambio en git, o hoy si tiene cambios sin comitear). Luego `python check-seo.py`.
 2. **Después del push**, cuando GitHub Pages haya desplegado (1-2 min; comprueba con `curl` que una página cambiada ya sirve la versión nueva): `python indexnow.py` — avisa a Bing vía IndexNow de las páginas HTML cambiadas en el último commit (`--todas` para todo el sitemap, o pasa rutas concretas). Google no usa IndexNow: para algo urgente, el usuario pide la indexación a mano en Search Console.
 3. El fichero `<32 hex>.txt` de la raíz es la clave de IndexNow: no lo borres ni lo renombres.
+
+## Páginas ocultas (solo con enlace)
+
+- Llevan `<meta name="robots" content="noindex">`, **no** van en `sitemap.xml` (check-seo.py lo comprueba), no se enlazan desde la web e `indexnow.py` las ignora. Resto de requisitos (GoatCounter, OG, JSON-LD, Madrid) igual que cualquier página.
+- [agenda.html](agenda.html): página del QR para bares (`https://taquillasiete.com/agenda`, URL fija). Muestra la próxima Sesión, Live y Rewind (una de cada) y un calendario con hoy y esos días. Lee `agenda.json`, que genera [actualiza-agenda.py](actualiza-agenda.py):
+  - **Sesiones**: del Google Calendar público del club, pero **solo** los eventos con un año entre paréntesis en el título ("Película (1999)"). El usuario no quiere que salga nada más del calendario.
+  - **Live y Rewind**: del JSON-LD de `eventos/*.html` (no del calendario).
+  - Un GitHub Action ([.github/workflows/agenda.yml](.github/workflows/agenda.yml)) lo regenera cada 6 h y hace commit si cambia. Al crear o tocar una página de `eventos/`, ejecuta también `python actualiza-agenda.py` antes de comitear.
+  - La página oculta cada evento 3 h después de su inicio aunque el JSON no se haya regenerado.

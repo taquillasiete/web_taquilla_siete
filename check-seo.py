@@ -64,7 +64,10 @@ def main() -> int:
         expected_loc = "https://taquillasiete.com/" if rel == "index.html" else f"https://taquillasiete.com/{rel}"
         if f'<link rel="canonical" href="{expected_loc}">' not in f.read_text(encoding="utf-8"):
             problems.append(f"el canonical no coincide con su URL ({expected_loc})")
-        if expected_loc not in sitemap_locs:
+        oculta = '<meta name="robots" content="noindex">' in f.read_text(encoding="utf-8")
+        if oculta and expected_loc in sitemap_locs:
+            problems.append("es una página oculta (noindex) y no debe estar en sitemap.xml")
+        elif not oculta and expected_loc not in sitemap_locs:
             problems.append(f"no está en sitemap.xml (falta {expected_loc})")
 
         if problems:
@@ -73,7 +76,7 @@ def main() -> int:
             for p in problems:
                 print(f"   - {p}")
         else:
-            print(f"[OK] {rel}")
+            print(f"[OK] {rel}" + ("  (oculta: noindex, fuera del sitemap)" if oculta else ""))
 
     known_files = {f.relative_to(ROOT).as_posix() for f in html_files} | {"index.html"}
     for loc in sitemap_locs:
