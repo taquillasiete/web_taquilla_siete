@@ -16,6 +16,12 @@ Para crear una página nueva, parte de [_template.html](_template.html) — ya i
 
 Cuando añadas una página nueva, añade también su URL en [sitemap.xml](sitemap.xml).
 
+## Una página por Mirada y por evento
+
+- **Miradas**: cada reseña vive en `miradas/<titulo>.html` (JSON-LD `Review` con su `url`). [la-mirada.html](la-mirada.html) es solo el índice: kicker, título enlazado, director · año, frase-resumen y "Leer la mirada →". Al añadir una mirada nueva: crea su página copiando otra de `miradas/`, añádela al índice, a las píldoras "otras miradas" del pie de las demás, a la lista de slugs del script de redirección de `la-mirada.html` (enlaces antiguos `#slug`) y al sitemap.
+- **Eventos**: cada Live/Rewind vive en `eventos/live-<tema>.html` o `eventos/rewind-<pelicula>.html`, con su JSON-LD `Event`/`ScreeningEvent` (el JSON-LD de evento va **solo** ahí, no en `live.html`/`rewind.html`). En los índices [live.html](live.html) y [rewind.html](rewind.html) el título y el cartel de cada evento enlazan a su página. Cuando un evento pasa: en su página cambia "Próximo evento" por "Evento anterior" y quita el botón de entradas y el `offers` del JSON-LD; en el índice pásalo al bloque de anteriores.
+- Las páginas en subcarpetas usan rutas `../` (CSS, JS, imágenes, menú). `check-seo.py` revisa también las subcarpetas y que el canonical coincida con la ruta del fichero.
+
 ## Verificación antes de hacer commit/push
 
 Ejecuta siempre, tras crear o modificar cualquier página:

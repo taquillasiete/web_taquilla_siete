@@ -28,4 +28,40 @@
     <loc>https://taquillasiete.com/actualidad.html</loc>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://taquillasiete.com/miradas/tras-el-cristal.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://taquillasiete.com/miradas/caro-diario.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://taquillasiete.com/miradas/in-the-mood-for-love.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://taquillasiete.com/miradas/mommy.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://taquillasiete.com/miradas/oldboy.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://taquillasiete.com/miradas/la-conversacion.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://taquillasiete.com/eventos/live-peliculas-para-no-dormir.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://taquillasiete.com/eventos/rewind-the-chaser.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://taquillasiete.com/eventos/live-peliculas-por-las-que-amo-el-cine.html</loc>
+    <priority>0.7</priority>
+  </url>
 </urlset>

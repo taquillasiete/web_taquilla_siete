@@ -546,6 +546,33 @@ section {
   border-color: var(--azul-claro);
 }
 
+/* Índice de "otras miradas" al pie de cada mirada */
+.indice-entradas--pie {
+  margin: 0 auto 1rem;
+  padding: 1.8rem 0 0;
+  border-bottom: none;
+  border-top: 1px solid var(--azul-claro-suave);
+}
+
+/* Resumen de cada mirada en el índice de Miradas */
+.critica--resumen .critica-meta {
+  margin-bottom: 1rem;
+}
+
+.critica-titulo a:hover,
+.section-head h2 a:hover {
+  color: var(--azul-marino-suave);
+}
+
+.critica-extracto {
+  font-family: var(--font-titulo);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--azul-marino);
+  margin-bottom: 1.2rem;
+}
+
 .nota-prensa {
   font-style: italic;
   font-size: 0.85rem;

@@ -15,7 +15,7 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
     sys.stdout.reconfigure(encoding="utf-8")
 
 ROOT = Path(__file__).parent
-SKIP = {"_template.html"}
+SKIP = {"_template.html", "plantilla.html"}
 MAX_IMAGE_BYTES = 300_000
 IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".webp"}
 
@@ -44,9 +44,12 @@ def check_file(path: Path) -> list[str]:
 
 def main() -> int:
     # Las páginas de redirección (meta refresh, p. ej. criticas.html) no son contenido real
+    # Incluye subcarpetas (miradas/, eventos/, actualidad/...), sin carpetas ocultas como .git
     html_files = sorted(
-        p for p in ROOT.glob("*.html")
-        if p.name not in SKIP and 'http-equiv="refresh"' not in p.read_text(encoding="utf-8")
+        p for p in ROOT.rglob("*.html")
+        if p.name not in SKIP
+        and not any(part.startswith(".") for part in p.relative_to(ROOT).parts)
+        and 'http-equiv="refresh"' not in p.read_text(encoding="utf-8")
     )
     sitemap_text = (ROOT / "sitemap.xml").read_text(encoding="utf-8") if (ROOT / "sitemap.xml").exists() else ""
     sitemap_locs = set(re.findall(r"<loc>(.*?)</loc>", sitemap_text))
@@ -57,21 +60,24 @@ def main() -> int:
     for f in html_files:
         problems = check_file(f)
 
-        expected_loc = "https://taquillasiete.com/" if f.name == "index.html" else f"https://taquillasiete.com/{f.name}"
+        rel = f.relative_to(ROOT).as_posix()
+        expected_loc = "https://taquillasiete.com/" if rel == "index.html" else f"https://taquillasiete.com/{rel}"
+        if f'<link rel="canonical" href="{expected_loc}">' not in f.read_text(encoding="utf-8"):
+            problems.append(f"el canonical no coincide con su URL ({expected_loc})")
         if expected_loc not in sitemap_locs:
             problems.append(f"no está en sitemap.xml (falta {expected_loc})")
 
         if problems:
             ok = False
-            print(f"[FALTA ALGO] {f.name}")
+            print(f"[FALTA ALGO] {rel}")
             for p in problems:
                 print(f"   - {p}")
         else:
-            print(f"[OK] {f.name}")
+            print(f"[OK] {rel}")
 
-    known_files = {f.name for f in html_files} | {"index.html"}
+    known_files = {f.relative_to(ROOT).as_posix() for f in html_files} | {"index.html"}
     for loc in sitemap_locs:
-        name = loc.rsplit("/", 1)[-1] or "index.html"
+        name = loc.removeprefix("https://taquillasiete.com/") or "index.html"
         if name not in known_files:
             ok = False
             print(f"[SITEMAP HUÉRFANO] {loc} no corresponde a ningún fichero HTML existente")
