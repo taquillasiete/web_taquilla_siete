@@ -1,14 +1,6 @@
 {
-  "actualizado": "2026-10-17T15:42:09+00:00",
+  "actualizado": "2026-10-18T20:52:28+00:00",
   "eventos": [
-    {
-      "tipo": "live",
-      "titulo": "Películas para no dormir",
-      "inicio": "2026-10-18T19:00",
-      "lugar": "Bar Picnic (C/ Minas 1)",
-      "cartel": "assets/img/live/carteles/cartel-2026-10-18.webp",
-      "entradas": "https://www.eventbrite.com/e/taquilla-siete-live-peliculas-para-no-dormir-tickets-2002327796340"
-    },
     {
       "tipo": "sesion",
       "titulo": "Desaparecida (1988) con Invitado",
