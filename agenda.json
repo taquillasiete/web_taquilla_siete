@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-21T21:48:52+00:00",
+  "actualizado": "2026-10-26T17:03:35+00:00",
   "eventos": [
     {
       "tipo": "sesion",
@@ -12,6 +12,14 @@
       "titulo": "Sesión especial WritersWeekend. Bailame el agua (2000) con Josecho San Mateo",
       "inicio": "2026-11-17T19:00",
       "lugar": "Lolina Vintage Café"
+    },
+    {
+      "tipo": "live",
+      "titulo": "Grandes villanos del Cine",
+      "inicio": "2026-11-22T19:00",
+      "lugar": "Bar Picnic (C/ Minas 1)",
+      "cartel": "assets/img/live/carteles/cartel-2026-11-22.webp",
+      "entradas": "https://www.eventbrite.com/e/taquilla-siete-live-grandes-villanos-del-cine-tickets-2003874360154"
     }
   ]
 }

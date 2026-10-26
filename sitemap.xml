@@ -12,7 +12,7 @@
   </url>
   <url>
     <loc>https://taquillasiete.com/live.html</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -64,6 +64,11 @@
     <loc>https://taquillasiete.com/miradas/la-conversacion.html</loc>
     <lastmod>2026-10-15</lastmod>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://taquillasiete.com/eventos/live-grandes-villanos-del-cine.html</loc>
+    <lastmod>2026-10-26</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://taquillasiete.com/eventos/live-peliculas-para-no-dormir.html</loc>
