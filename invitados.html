@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add("js")</script>
 <title>Invitados — Taquilla Siete</title>
 <meta name="description" content="Las sesiones de nuestro club de cine en Madrid con invitados del mundo del cine: actores y cineastas que se sientan a comentar una película con nosotros.">
 <link rel="canonical" href="https://taquillasiete.com/invitados">
@@ -12,18 +13,16 @@
 <meta property="og:url" content="https://taquillasiete.com/invitados">
 <meta property="og:title" content="Invitados — Taquilla Siete">
 <meta property="og:description" content="Las sesiones de nuestro club de cine en Madrid con invitados del mundo del cine: actores y cineastas que se sientan a comentar una película con nosotros.">
-<meta property="og:image" content="https://taquillasiete.com/assets/logos/taquilla-siete-logo.jpg">
-<meta property="og:image:width" content="1080">
-<meta property="og:image:height" content="1080">
+<meta property="og:image" content="https://taquillasiete.com/assets/logos/og-taquilla-siete.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Invitados — Taquilla Siete">
 <meta name="twitter:description" content="Las sesiones de nuestro club de cine en Madrid con invitados del mundo del cine: actores y cineastas que se sientan a comentar una película con nosotros.">
-<meta name="twitter:image" content="https://taquillasiete.com/assets/logos/taquilla-siete-logo.jpg">
-<link rel="icon" href="assets/logos/taquilla-siete-logo.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=8">
+<meta name="twitter:image" content="https://taquillasiete.com/assets/logos/og-taquilla-siete.jpg">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="css/style.css?v=9">
 <script data-goatcounter="https://taquillasiete.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script type="application/ld+json">
 {
@@ -52,11 +51,11 @@
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="./">
-      <img src="assets/logos/logo-marino.png" alt="Logo Taquilla Siete">
+      <img src="assets/logos/logo-marino.png" alt="Logo Taquilla Siete" width="1080" height="1080">
       <span>Taquilla Siete</span>
     </a>
-    <button class="nav-toggle" aria-label="Abrir menú">☰</button>
-    <nav class="nav-links">
+    <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">☰</button>
+    <nav class="nav-links" id="menu-principal">
       <a href="./#historia">Club</a>
       <a href="./#actividades">Actividades</a>
       <a href="./#calendario">Calendario</a>
@@ -91,7 +90,7 @@
 
     <div class="publis reveal">
       <a class="publi" href="https://www.instagram.com/p/C6wPTIIqCQo/" target="_blank" rel="noopener">
-        <img loading="lazy" decoding="async" class="publi-foto" src="assets/img/invitados/manolo-solo.jpg" alt="Sesión con Manolo Solo">
+        <img loading="lazy" decoding="async" class="publi-foto" src="assets/img/invitados/manolo-solo.webp" alt="Sesión con Manolo Solo" width="1080" height="1080">
         <span class="publi-texto">
           <span class="publi-nombre">Manolo Solo</span>
           <span class="publi-peli">Under the Skin</span>
@@ -100,7 +99,7 @@
         </span>
       </a>
       <a class="publi" href="https://www.instagram.com/p/DCU0PQfumku/" target="_blank" rel="noopener">
-        <img loading="lazy" decoding="async" class="publi-foto" src="assets/img/invitados/dani-rovira.jpg" alt="Sesión con Dani Rovira">
+        <img loading="lazy" decoding="async" class="publi-foto" src="assets/img/invitados/dani-rovira.webp" alt="Sesión con Dani Rovira" width="1080" height="1080">
         <span class="publi-texto">
           <span class="publi-nombre">Dani Rovira</span>
           <span class="publi-peli">Caro Diario</span>
@@ -109,7 +108,7 @@
         </span>
       </a>
       <a class="publi" href="https://www.instagram.com/p/DGAyGDcqbAO/" target="_blank" rel="noopener">
-        <img loading="lazy" decoding="async" class="publi-foto" src="assets/img/invitados/nacho-guerreros.jpg" alt="Sesión con Nacho Guerreros">
+        <img loading="lazy" decoding="async" class="publi-foto" src="assets/img/invitados/nacho-guerreros.webp" alt="Sesión con Nacho Guerreros" width="864" height="1080">
         <span class="publi-texto">
           <span class="publi-nombre">Nacho Guerreros</span>
           <span class="publi-peli">Repulsión</span>
@@ -118,7 +117,7 @@
         </span>
       </a>
       <a class="publi" href="https://www.instagram.com/p/DRSYlaKDdpq/" target="_blank" rel="noopener">
-        <img loading="lazy" decoding="async" class="publi-foto" src="assets/img/invitados/hovik-keuchkerian.jpg" alt="Sesión con Hovik Keuchkerian">
+        <img loading="lazy" decoding="async" class="publi-foto" src="assets/img/invitados/hovik-keuchkerian.webp" alt="Sesión con Hovik Keuchkerian" width="864" height="1080">
         <span class="publi-texto">
           <span class="publi-nombre">Hovik Keuchkerian</span>
           <span class="publi-peli">La joven del agua</span>
@@ -127,7 +126,7 @@
         </span>
       </a>
       <a class="publi" href="https://www.instagram.com/p/DVQoZAgjfQS/" target="_blank" rel="noopener">
-        <img loading="lazy" decoding="async" class="publi-foto" src="assets/img/invitados/nacho-guerreros-2.jpg" alt="Sesión con Nacho Guerreros">
+        <img loading="lazy" decoding="async" class="publi-foto" src="assets/img/invitados/nacho-guerreros-2.webp" alt="Sesión con Nacho Guerreros" width="864" height="1080">
         <span class="publi-texto">
           <span class="publi-nombre">Nacho Guerreros</span>
           <span class="publi-peli">La pianista</span>
@@ -136,7 +135,7 @@
         </span>
       </a>
       <a class="publi" href="https://www.instagram.com/p/DOiZqARDRsI/" target="_blank" rel="noopener">
-        <img loading="lazy" decoding="async" class="publi-foto" src="assets/img/invitados/pedro-almodovar.jpg" alt="Encuentro con Pedro Almodóvar">
+        <img loading="lazy" decoding="async" class="publi-foto" src="assets/img/invitados/pedro-almodovar.webp" alt="Encuentro con Pedro Almodóvar" width="864" height="1080">
         <span class="publi-texto">
           <span class="publi-nombre">Pedro Almodóvar</span>
           <span class="publi-peli">Encuentro con el club</span>
@@ -145,7 +144,7 @@
         </span>
       </a>
       <a class="publi" href="https://www.instagram.com/p/De3rMf4EcJb/" target="_blank" rel="noopener">
-        <img loading="lazy" decoding="async" class="publi-foto" src="assets/img/invitados/nacho-guerreros-3.jpg" alt="Sesión con Nacho Guerreros">
+        <img loading="lazy" decoding="async" class="publi-foto" src="assets/img/invitados/nacho-guerreros-3.webp" alt="Sesión con Nacho Guerreros" width="864" height="1080">
         <span class="publi-texto">
           <span class="publi-nombre">Nacho Guerreros</span>
           <span class="publi-peli">Desaparecida</span>
@@ -155,7 +154,7 @@
       </a>
     </div>
 
-    <div class="actividad-cuerpo reveal" style="margin-top:3rem;">
+    <div class="actividad-cuerpo reveal mt-l">
       <a class="volver" href="./#actividades">← Volver</a>
     </div>
   </div>
@@ -163,11 +162,11 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <p>© <span id="anio"></span> Taquilla Siete — Club de Cine · <a href="preguntas-frecuentes">Preguntas frecuentes</a></p>
+    <p>© <span id="anio">2026</span> Taquilla Siete — Club de Cine · <a href="preguntas-frecuentes">Preguntas frecuentes</a></p>
   </div>
 </footer>
 
-<script src="js/main.js?v=2"></script>
+<script src="js/main.js?v=3"></script>
 <script>document.getElementById("anio").textContent = new Date().getFullYear();</script>
 </body>
 </html>

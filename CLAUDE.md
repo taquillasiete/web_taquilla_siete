@@ -12,6 +12,16 @@ Cada página del sitio debe llevar siempre, en su `<head>`:
 4. Un bloque **JSON-LD** `"@type": "Organization"` (datos estructurados, importante para que Google e IAs como ChatGPT/Perplexity citen el sitio correctamente)
 5. Mención de **"Madrid"** en el contenido visible de la página (SEO local — ver conversación sobre posicionamiento)
 
+Además, en todas las páginas:
+
+- `<script>document.documentElement.classList.add("js")</script>` justo tras el viewport: sin él, los bloques `.reveal` no se ocultan/animan (y sin JS el contenido se ve igual, que es lo que queremos).
+- Fuentes **alojadas en la propia web** (`@font-face` al principio de `css/style.css`, ficheros en `assets/fonts/`): no enlaces Google Fonts.
+- Favicon: `favicon.ico` + `apple-touch-icon.png` de la raíz. Imagen para redes genérica: `assets/logos/og-taquilla-siete.jpg` (1200×630); el `logo` del JSON-LD sigue siendo el JPG cuadrado.
+- Cada `<img>` con `width` y `height` (tamaño real del fichero) para que la página no "salte" al cargar. Fotos en WebP, como mucho 1200 px de lado.
+- Nada de `style="…"` sueltos: usa clases (`.mt-s`, `.mt-l`, `.mt-xl`, `.mb-l` para separaciones). Excepción: `--ratio` en `.media-foto`.
+- Si cambias `css/style.css` o `js/main.js`, sube el `?v=N` en **todas** las páginas.
+- [404.html](404.html) la sirve GitHub Pages en cualquier ruta inexistente: por eso usa rutas absolutas (`/css/...`, `/sesiones`). Es oculta (noindex).
+
 Para crear una página nueva, parte de [_template.html](_template.html) — ya incluye todo lo anterior con placeholders — y copia el header/footer de otra página existente para mantener consistencia visual.
 
 Cuando añadas una página nueva, añade también su URL en [sitemap.xml](sitemap.xml).

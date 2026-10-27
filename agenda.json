@@ -1,11 +1,18 @@
 {
-  "actualizado": "2026-10-26T17:03:35+00:00",
+  "actualizado": "2026-10-27T18:55:44+00:00",
   "eventos": [
     {
       "tipo": "sesion",
       "titulo": "Rocky Horror Picture Show (1975)",
       "inicio": "2026-11-04T19:00",
       "lugar": "Lolina Vintage Café"
+    },
+    {
+      "tipo": "rewind",
+      "titulo": "Bahía de sangre (Mario Bava, 1971)",
+      "inicio": "2026-11-15T12:00",
+      "lugar": "Cines Embajadores Río",
+      "cartel": "assets/img/rewind/carteles/cartel-2026-11-15.webp"
     },
     {
       "tipo": "sesion",

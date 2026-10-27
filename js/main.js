@@ -14,12 +14,25 @@ const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelector(".nav-links");
 
 if (navToggle && navLinks) {
+  const marcarMenu = (abierto) => {
+    navLinks.classList.toggle("abierto", abierto);
+    navToggle.setAttribute("aria-expanded", String(abierto));
+    navToggle.setAttribute("aria-label", abierto ? "Cerrar menú" : "Abrir menú");
+  };
+
   navToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("abierto");
+    marcarMenu(!navLinks.classList.contains("abierto"));
   });
 
   navLinks.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => navLinks.classList.remove("abierto"));
+    link.addEventListener("click", () => marcarMenu(false));
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && navLinks.classList.contains("abierto")) {
+      marcarMenu(false);
+      navToggle.focus();
+    }
   });
 }
 

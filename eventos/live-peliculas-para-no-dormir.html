@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add("js")</script>
 <title>Taquilla Siete Live: Películas para no dormir — Taquilla Siete</title>
 <meta name="description" content="Taquilla Siete Live «Películas para no dormir»: cinefórum participativo el domingo 18 de octubre de 2026 en Bar Picnic, Madrid. Entrada 5€ con consumición.">
 <link rel="canonical" href="https://taquillasiete.com/eventos/live-peliculas-para-no-dormir">
@@ -19,11 +20,9 @@
 <meta name="twitter:title" content="Taquilla Siete Live: Películas para no dormir — Taquilla Siete">
 <meta name="twitter:description" content="Taquilla Siete Live «Películas para no dormir»: cinefórum participativo el domingo 18 de octubre de 2026 en Bar Picnic, Madrid. Entrada 5€ con consumición.">
 <meta name="twitter:image" content="https://taquillasiete.com/assets/img/live/carteles/cartel-2026-10-18.webp">
-<link rel="icon" href="../assets/logos/taquilla-siete-logo.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css?v=8">
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="stylesheet" href="../css/style.css?v=9">
 <script data-goatcounter="https://taquillasiete.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script type="application/ld+json">
 {
@@ -52,6 +51,7 @@
   "@type": "Event",
   "name": "Taquilla Siete Live: Películas para no dormir",
   "startDate": "2026-10-18T19:00:00+02:00",
+  "endDate": "2026-10-18T21:00:00+02:00",
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "eventStatus": "https://schema.org/EventScheduled",
   "url": "https://taquillasiete.com/eventos/live-peliculas-para-no-dormir",
@@ -80,11 +80,11 @@
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="../">
-      <img src="../assets/logos/logo-marino.png" alt="Logo Taquilla Siete">
+      <img src="../assets/logos/logo-marino.png" alt="Logo Taquilla Siete" width="1080" height="1080">
       <span>Taquilla Siete</span>
     </a>
-    <button class="nav-toggle" aria-label="Abrir menú">☰</button>
-    <nav class="nav-links">
+    <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">☰</button>
+    <nav class="nav-links" id="menu-principal">
       <a href="../#historia">Club</a>
       <a href="../#actividades">Actividades</a>
       <a href="../#calendario">Calendario</a>
@@ -117,10 +117,10 @@
       <p>Domingo 18 de octubre de 2026, 19:00h — Bar Picnic (C/ Minas 1, Madrid). Entrada: 5€ con consumición.</p>
     </div>
     <div class="cartel reveal">
-      <img src="../assets/img/live/carteles/cartel-2026-10-18.webp" alt="Cartel de Taquilla Siete Live: cinefórum participativo «Películas para no dormir». Domingo 18 de octubre, 19:00h, Bar Picnic, C/ Minas 1, Madrid. Entrada 5€ con consumición." decoding="async">
+      <img src="../assets/img/live/carteles/cartel-2026-10-18.webp" alt="Cartel de Taquilla Siete Live: cinefórum participativo «Películas para no dormir». Domingo 18 de octubre, 19:00h, Bar Picnic, C/ Minas 1, Madrid. Entrada 5€ con consumición." decoding="async" width="1080" height="1350">
     </div>
 
-    <div class="actividad-cuerpo reveal" style="margin-top:3rem;">
+    <div class="actividad-cuerpo reveal mt-l">
       <p>Taquilla Siete Live es nuestro cinefórum participativo en Madrid: al llegar escribes en una tarjeta tu nombre y una película relacionada con la temática de la noche, sacamos tarjetas de una urna al azar y quien sale sube al escenario a contarnos su película. No hace falta ser experto ni traer nada preparado. <a href="../live">Más sobre Taquilla Siete Live</a>.</p>
       <a class="volver" href="../live">← Volver a Taquilla Siete Live</a>
     </div>
@@ -129,11 +129,11 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <p>© <span id="anio"></span> Taquilla Siete — Club de Cine · <a href="../preguntas-frecuentes">Preguntas frecuentes</a></p>
+    <p>© <span id="anio">2026</span> Taquilla Siete — Club de Cine · <a href="../preguntas-frecuentes">Preguntas frecuentes</a></p>
   </div>
 </footer>
 
-<script src="../js/main.js?v=2"></script>
+<script src="../js/main.js?v=3"></script>
 <script>document.getElementById("anio").textContent = new Date().getFullYear();</script>
 </body>
 </html>

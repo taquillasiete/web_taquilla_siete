@@ -3,27 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add("js")</script>
 <title>Taquilla Siete — Club de Cine</title>
-<meta name="description" content="Taquilla Siete es un club de cine en Madrid: tertulias quincenales, eventos en directo (Live) y proyecciones con coloquio (Rewind). El cine nos encanta; compartirlo, más.">
+<meta name="description" content="Taquilla Siete es un club de cine en Madrid: tertulias quincenales, eventos en directo (Live) y proyecciones con coloquio (Rewind).">
 <link rel="canonical" href="https://taquillasiete.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Taquilla Siete">
 <meta property="og:locale" content="es_ES">
 <meta property="og:url" content="https://taquillasiete.com/">
 <meta property="og:title" content="Taquilla Siete — Club de Cine">
-<meta property="og:description" content="Taquilla Siete es un club de cine en Madrid: tertulias quincenales, eventos en directo (Live) y proyecciones con coloquio (Rewind). El cine nos encanta; compartirlo, más.">
-<meta property="og:image" content="https://taquillasiete.com/assets/logos/taquilla-siete-logo.jpg">
-<meta property="og:image:width" content="1080">
-<meta property="og:image:height" content="1080">
+<meta property="og:description" content="Taquilla Siete es un club de cine en Madrid: tertulias quincenales, eventos en directo (Live) y proyecciones con coloquio (Rewind).">
+<meta property="og:image" content="https://taquillasiete.com/assets/logos/og-taquilla-siete.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Taquilla Siete — Club de Cine">
 <meta name="twitter:description" content="Taquilla Siete es un club de cine en Madrid: tertulias quincenales, eventos en directo (Live) y proyecciones con coloquio (Rewind).">
-<meta name="twitter:image" content="https://taquillasiete.com/assets/logos/taquilla-siete-logo.jpg">
-<link rel="icon" href="assets/logos/taquilla-siete-logo.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=8">
+<meta name="twitter:image" content="https://taquillasiete.com/assets/logos/og-taquilla-siete.jpg">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="css/style.css?v=9">
 <script data-goatcounter="https://taquillasiete.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script type="application/ld+json">
 {
@@ -63,11 +62,11 @@
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="./">
-      <img src="assets/logos/logo-marino.png" alt="Logo Taquilla Siete">
+      <img src="assets/logos/logo-marino.png" alt="Logo Taquilla Siete" width="1080" height="1080">
       <span>Taquilla Siete</span>
     </a>
-    <button class="nav-toggle" aria-label="Abrir menú">☰</button>
-    <nav class="nav-links">
+    <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">☰</button>
+    <nav class="nav-links" id="menu-principal">
       <a href="#historia">Club</a>
       <a href="#actividades">Actividades</a>
       <a href="#calendario">Calendario</a>
@@ -87,38 +86,38 @@
 </header>
 
 <section class="hero">
-  <h1 class="hero-logo"><span class="sr-only">Taquilla Siete — Club de Cine en Madrid</span><img src="assets/logos/logo-marino.png" alt="Taquilla Siete — Club de Cine"></h1>
+  <h1 class="hero-logo"><span class="sr-only">Taquilla Siete — Club de Cine en Madrid</span><img src="assets/logos/logo-marino.png" alt="" width="1080" height="1080"></h1>
   <p class="tagline">El cine nos encanta; compartirlo, más. Tu club de cine en Madrid.</p>
-  <div class="scroll-cue">
+  <a class="scroll-cue" href="#historia">
     <span>Descubre más</span>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-  </div>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </a>
 </section>
 
 <section id="historia">
   <div class="wrap historia">
     <div class="texto reveal">
-      <p class="eyebrow" style="font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--azul-marino-suave);opacity:.7;margin-bottom:.8rem;">Quiénes somos</p>
-      <h2 style="font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:1.2rem;">Nacimos de las ganas de sentarnos a hablar de cine</h2>
+      <p class="eyebrow">Quiénes somos</p>
+      <h2>Nacimos de las ganas de sentarnos a hablar de cine</h2>
       <p>Taquilla Siete nace en septiembre de 2023 como una iniciativa cultural independiente, con una idea sencilla: ofrecer un espacio donde compartir ideas, opiniones y aprendizaje alrededor del cine.</p>
       <p>Somos un club de perfil amateur — no pedimos grandes conocimientos, solo ganas de comentar — y nos reunimos cada dos semanas en cafés y bares de Malasaña. Desde entonces hemos sacado la conversación a un escenario, hemos empezado a rescatar películas del pasado para entender mejor las de hoy, y nos escapamos juntos a estrenos, reposiciones y coloquios.</p>
     </div>
     <div class="reveal">
       <figure class="media-foto" style="--ratio: 4/5;">
-        <img loading="lazy" decoding="async" src="assets/img/club-06.jpeg" alt="Miembros del club atentos durante una tertulia">
+        <img loading="lazy" decoding="async" src="assets/img/club-06.webp" alt="Miembros del club atentos durante una tertulia" width="727" height="1200">
       </figure>
     </div>
   </div>
   <div class="wrap">
     <div class="mosaico reveal">
-      <figure><img loading="lazy" decoding="async" src="assets/img/sesiones/sesion-01.jpeg" alt="Foto de grupo de una sesión del club"></figure>
-      <figure><img loading="lazy" decoding="async" src="assets/img/sesiones/sesion-02.jpeg" alt="El grupo de una sesión del club"></figure>
-      <figure><img loading="lazy" decoding="async" src="assets/img/sesiones/sesion-03.jpeg" alt="Asistentes de una sesión del club"></figure>
-      <figure><img loading="lazy" decoding="async" src="assets/img/sesiones/sesion-04.jpeg" alt="Foto de grupo tras una tertulia"></figure>
-      <figure><img loading="lazy" decoding="async" src="assets/img/sesiones/sesion-05.jpeg" alt="El grupo de una tertulia del club"></figure>
-      <figure><img loading="lazy" decoding="async" src="assets/img/sesiones/sesion-06.webp" alt="Foto de grupo de una sesión"></figure>
-      <figure><img loading="lazy" decoding="async" src="assets/img/sesiones/sesion-07.webp" alt="Asistentes de una tertulia del club"></figure>
-      <figure><img loading="lazy" decoding="async" src="assets/img/sesiones/sesion-08.webp" alt="Foto de grupo al final de una sesión"></figure>
+      <figure><img loading="lazy" decoding="async" src="assets/img/sesiones/sesion-01.webp" alt="Foto de grupo de una sesión del club" width="1000" height="750"></figure>
+      <figure><img loading="lazy" decoding="async" src="assets/img/sesiones/sesion-02.webp" alt="El grupo de una sesión del club" width="1000" height="750"></figure>
+      <figure><img loading="lazy" decoding="async" src="assets/img/sesiones/sesion-03.webp" alt="Asistentes de una sesión del club" width="1000" height="750"></figure>
+      <figure><img loading="lazy" decoding="async" src="assets/img/sesiones/sesion-04.webp" alt="Foto de grupo tras una tertulia" width="1000" height="750"></figure>
+      <figure><img loading="lazy" decoding="async" src="assets/img/sesiones/sesion-05.webp" alt="El grupo de una tertulia del club" width="1000" height="750"></figure>
+      <figure><img loading="lazy" decoding="async" src="assets/img/sesiones/sesion-06.webp" alt="Foto de grupo de una sesión" width="1000" height="750"></figure>
+      <figure><img loading="lazy" decoding="async" src="assets/img/sesiones/sesion-07.webp" alt="Asistentes de una tertulia del club" width="1000" height="750"></figure>
+      <figure><img loading="lazy" decoding="async" src="assets/img/sesiones/sesion-08.webp" alt="Foto de grupo al final de una sesión" width="1000" height="750"></figure>
     </div>
   </div>
 </section>
@@ -135,7 +134,7 @@
 
       <article class="card-actividad reveal">
         <figure class="media-foto">
-          <img loading="lazy" decoding="async" src="assets/img/club-01.webp" alt="Grupo comentando una película en una sesión">
+          <img loading="lazy" decoding="async" src="assets/img/club-01.webp" alt="Grupo comentando una película en una sesión" width="1151" height="1200">
         </figure>
         <div class="contenido">
           <span class="etiqueta">Actividad principal</span>
@@ -147,19 +146,19 @@
 
       <article class="card-actividad reveal">
         <figure class="media-foto media-foto--logo">
-          <img loading="lazy" decoding="async" src="assets/logos/live.png" alt="Logo de Taquilla Siete Live">
+          <img loading="lazy" decoding="async" src="assets/logos/live.webp" alt="Logo de Taquilla Siete Live" width="1080" height="540">
         </figure>
         <div class="contenido">
           <span class="etiqueta">En directo</span>
           <h3>Taquilla Siete Live</h3>
-          <p>Eventos en directo en Sala Picnic (Madrid), abiertos a todo el que quiera venir, con entrada. Quien quiere sube al escenario a hablar de una película con nosotros: un formato participativo, hecho por y para el público.</p>
+          <p>Eventos en directo en Bar Picnic (Madrid), abiertos a todo el que quiera venir, con entrada. Quien quiere sube al escenario a hablar de una película con nosotros: un formato participativo, hecho por y para el público.</p>
           <a class="enlace-actividad" href="live">Ver más →</a>
         </div>
       </article>
 
       <article class="card-actividad reveal">
         <figure class="media-foto media-foto--logo">
-          <img loading="lazy" decoding="async" src="assets/logos/rewind.png" alt="Logo de Taquilla Siete Rewind">
+          <img loading="lazy" decoding="async" src="assets/logos/rewind.webp" alt="Logo de Taquilla Siete Rewind" width="1080" height="541">
         </figure>
         <div class="contenido">
           <span class="etiqueta">Proyección y coloquio</span>
@@ -285,11 +284,11 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <p>© <span id="anio"></span> Taquilla Siete — Club de Cine · <a href="preguntas-frecuentes">Preguntas frecuentes</a></p>
+    <p>© <span id="anio">2026</span> Taquilla Siete — Club de Cine · <a href="preguntas-frecuentes">Preguntas frecuentes</a></p>
   </div>
 </footer>
 
-<script src="js/main.js?v=2"></script>
+<script src="js/main.js?v=3"></script>
 <script>document.getElementById("anio").textContent = new Date().getFullYear();</script>
 </body>
 </html>

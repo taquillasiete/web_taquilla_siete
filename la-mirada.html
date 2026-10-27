@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add("js")</script>
 <title>Miradas — Taquilla Siete</title>
 <meta name="description" content="Miradas: retrospectivas escritas por socios de Taquilla Siete, revisitando películas de siempre a propósito de nuestras Sesiones.">
 <link rel="canonical" href="https://taquillasiete.com/la-mirada">
@@ -12,18 +13,16 @@
 <meta property="og:url" content="https://taquillasiete.com/la-mirada">
 <meta property="og:title" content="Miradas — Taquilla Siete">
 <meta property="og:description" content="Miradas: retrospectivas escritas por socios de Taquilla Siete, revisitando películas de siempre a propósito de nuestras Sesiones.">
-<meta property="og:image" content="https://taquillasiete.com/assets/logos/taquilla-siete-logo.jpg">
-<meta property="og:image:width" content="1080">
-<meta property="og:image:height" content="1080">
+<meta property="og:image" content="https://taquillasiete.com/assets/logos/og-taquilla-siete.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Miradas — Taquilla Siete">
 <meta name="twitter:description" content="Miradas: retrospectivas escritas por socios de Taquilla Siete, revisitando películas de siempre a propósito de nuestras Sesiones.">
-<meta name="twitter:image" content="https://taquillasiete.com/assets/logos/taquilla-siete-logo.jpg">
-<link rel="icon" href="assets/logos/taquilla-siete-logo.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=8">
+<meta name="twitter:image" content="https://taquillasiete.com/assets/logos/og-taquilla-siete.jpg">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="css/style.css?v=9">
 <script>
   // Enlaces antiguos tipo la-mirada.html#oldboy: llevan a la página propia de cada mirada
   (function () {
@@ -59,11 +58,11 @@
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="./">
-      <img src="assets/logos/logo-marino.png" alt="Logo Taquilla Siete">
+      <img src="assets/logos/logo-marino.png" alt="Logo Taquilla Siete" width="1080" height="1080">
       <span>Taquilla Siete</span>
     </a>
-    <button class="nav-toggle" aria-label="Abrir menú">☰</button>
-    <nav class="nav-links">
+    <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">☰</button>
+    <nav class="nav-links" id="menu-principal">
       <a href="./#historia">Club</a>
       <a href="./#actividades">Actividades</a>
       <a href="./#calendario">Calendario</a>
@@ -91,7 +90,7 @@
 
 <section>
   <div class="wrap">
-    <div class="actividad-cuerpo reveal" style="margin-bottom:3rem;">
+    <div class="actividad-cuerpo reveal mb-l">
       <p>Estas son las miradas de compañeros de nuestro club de cine en Madrid: retrospectivas a título personal sobre películas de siempre, escritas a propósito de nuestras Sesiones. No hablamos de estrenos aquí — para eso está <a href="actualidad">Actualidad</a> — sino de títulos que merece la pena revisitar con calma.</p>
     </div>
 
@@ -147,7 +146,7 @@
 
     </div>
 
-    <div class="actividad-cuerpo reveal" style="margin-top:3rem;">
+    <div class="actividad-cuerpo reveal mt-l">
       <a class="volver" href="./#actividades">← Volver</a>
     </div>
   </div>
@@ -155,11 +154,11 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <p>© <span id="anio"></span> Taquilla Siete — Club de Cine · <a href="preguntas-frecuentes">Preguntas frecuentes</a></p>
+    <p>© <span id="anio">2026</span> Taquilla Siete — Club de Cine · <a href="preguntas-frecuentes">Preguntas frecuentes</a></p>
   </div>
 </footer>
 
-<script src="js/main.js?v=2"></script>
+<script src="js/main.js?v=3"></script>
 <script>document.getElementById("anio").textContent = new Date().getFullYear();</script>
 </body>
 </html>
