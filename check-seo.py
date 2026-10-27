@@ -4,12 +4,21 @@ Comprueba que todas las páginas HTML del sitio llevan lo básico de SEO/analít
 (GoatCounter, canonical, Open Graph, Twitter Card, JSON-LD Organization, mención
 de "Madrid") y que el sitemap.xml está sincronizado con los ficheros reales.
 
+Además: que no quede ningún marcador PENDIENTE, que cabecera/pie/Organization/?v
+estén sincronizados (sincroniza.py), que cada evento esté como próximo o anterior
+según su fecha (en su página y en live.html/rewind.html) y que cada Mirada esté
+enlazada en el índice y en las píldoras "otras miradas" de las demás.
+
 Uso: python check-seo.py
 Sale con código 1 si algo falta, para poder usarlo antes de hacer commit/push.
 """
+import json
 import re
 import sys
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
+
+import sincroniza
 
 if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
     sys.stdout.reconfigure(encoding="utf-8")
@@ -40,6 +49,56 @@ def check_file(path: Path) -> list[str]:
     for m in re.finditer(r"<img\b[^>]*>", text):
         if "alt=" not in m.group(0):
             problems.append(f"imagen sin alt: {m.group(0)[:60]}...")
+    for m in sorted(set(re.findall(r"PENDIENTE\w*", text))):
+        problems.append(f"queda el marcador {m} sin rellenar")
+    return problems
+
+
+def check_eventos() -> list[str]:
+    """Un evento pasado (3 h tras su inicio, como en agenda.html) va como anterior: sin entradas ni offers."""
+    problems = []
+    ahora = datetime.now(timezone.utc)
+    for pagina in sorted((ROOT / "eventos").glob("*.html")):
+        rel = pagina.relative_to(ROOT).as_posix()
+        texto = pagina.read_text(encoding="utf-8")
+        evento = next(
+            (d for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>', texto, re.S)
+             if (d := json.loads(b)).get("@type") in ("Event", "ScreeningEvent")),
+            None,
+        )
+        if not evento:
+            problems.append(f"{rel}: no tiene JSON-LD Event/ScreeningEvent")
+            continue
+        pasado = datetime.fromisoformat(evento["startDate"]) + timedelta(hours=3) < ahora
+        if pasado and ("Próximo evento" in texto or "offers" in evento):
+            problems.append(f"{rel}: ya ha pasado; pon \"Evento anterior\" y quita el botón de entradas y el offers")
+        if not pasado and "Evento anterior" in texto:
+            problems.append(f"{rel}: aún no ha pasado y dice \"Evento anterior\"")
+
+        indice = ROOT / ("rewind.html" if pagina.name.startswith("rewind-") else "live.html")
+        itexto = indice.read_text(encoding="utf-8")
+        enlace = itexto.find(f'href="eventos/{pagina.stem}"')
+        anteriores = re.search(r'class="eyebrow">[^<]*anteriores', itexto)
+        if enlace == -1:
+            problems.append(f"{indice.name}: no enlaza a {rel}")
+        elif pasado and (not anteriores or enlace < anteriores.start()):
+            problems.append(f"{indice.name}: {pagina.stem} ya ha pasado; muévelo al bloque de anteriores")
+        elif not pasado and anteriores and enlace > anteriores.start():
+            problems.append(f"{indice.name}: {pagina.stem} aún no ha pasado y está en el bloque de anteriores")
+    return problems
+
+
+def check_miradas() -> list[str]:
+    problems = []
+    slugs = sorted(p.stem for p in (ROOT / "miradas").glob("*.html"))
+    indice = (ROOT / "la-mirada.html").read_text(encoding="utf-8")
+    for slug in slugs:
+        if f'href="miradas/{slug}"' not in indice:
+            problems.append(f"la-mirada.html: falta la mirada {slug} en el índice")
+        texto = (ROOT / "miradas" / f"{slug}.html").read_text(encoding="utf-8")
+        for otra in slugs:
+            if otra != slug and f'href="{otra}"' not in texto:
+                problems.append(f"miradas/{slug}.html: falta la píldora \"otras miradas\" a {otra}")
     return problems
 
 def main() -> int:
@@ -86,6 +145,20 @@ def main() -> int:
         if name not in known_files:
             ok = False
             print(f"[SITEMAP HUÉRFANO] {loc} no corresponde a ningún fichero HTML existente")
+
+    otros = check_eventos() + check_miradas()
+    if otros:
+        ok = False
+        print("\n[EVENTOS / MIRADAS]")
+        for p in otros:
+            print(f"   - {p}")
+
+    desfasadas = sincroniza.desfasadas()
+    if desfasadas:
+        ok = False
+        print("\n[DESINCRONIZADAS] cabecera, pie, Organization, ?v o FAQ distintos de la fuente — ejecuta python sincroniza.py")
+        for rel, cambios in desfasadas.items():
+            print(f"   - {rel}: {', '.join(cambios)}")
 
     heavy_images = [
         p for p in (ROOT / "assets").rglob("*")

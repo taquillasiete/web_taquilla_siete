@@ -1,10 +1,14 @@
-# Regenera agenda.json (página oculta agenda.html, QR para bares) varias veces al día:
+# Regenera agenda.json (página oculta agenda.html, QR para bares) varias veces al día
+# y cada vez que se sube un cambio en eventos/:
 # próxima Sesión desde el Google Calendar del club, Live y Rewind desde eventos/*.html.
 name: Actualiza agenda
 
 on:
   schedule:
     - cron: "17 */6 * * *"
+  push:
+    branches: [main]
+    paths: ["eventos/**"]
   workflow_dispatch:
 
 permissions:

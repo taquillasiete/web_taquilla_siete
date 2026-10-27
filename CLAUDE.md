@@ -19,24 +19,31 @@ Además, en todas las páginas:
 - Favicon: `favicon.ico` + `apple-touch-icon.png` de la raíz. Imagen para redes genérica: `assets/logos/og-taquilla-siete.jpg` (1200×630); el `logo` del JSON-LD sigue siendo el JPG cuadrado.
 - Cada `<img>` con `width` y `height` (tamaño real del fichero) para que la página no "salte" al cargar. Fotos en WebP, como mucho 1200 px de lado.
 - Nada de `style="…"` sueltos: usa clases (`.mt-s`, `.mt-l`, `.mt-xl`, `.mb-l` para separaciones). Excepción: `--ratio` en `.media-foto`.
-- Si cambias `css/style.css` o `js/main.js`, sube el `?v=N` en **todas** las páginas.
+- El `?v=` de `css/style.css` y `js/main.js` es un hash del fichero que pone [sincroniza.py](sincroniza.py): no lo toques a mano.
 - [404.html](404.html) la sirve GitHub Pages en cualquier ruta inexistente: por eso usa rutas absolutas (`/css/...`, `/sesiones`). Es oculta (noindex).
 
-Para crear una página nueva, parte de [_template.html](_template.html) — ya incluye todo lo anterior con placeholders — y copia el header/footer de otra página existente para mantener consistencia visual.
+Para crear una página nueva, parte de [_template.html](_template.html): ya incluye todo lo anterior con placeholders, más la cabecera y el pie.
+
+## Bloques comunes: una sola fuente
+
+La **cabecera**, el **pie**, el **JSON-LD Organization** (p. ej. `sameAs`) y el `?v=` se editan **solo en [_template.html](_template.html)**; luego `python sincroniza.py` los copia a todas las páginas, con las rutas ajustadas (`../` en subcarpetas, `/` en 404.html, `#ancla` en la portada). Un enlace nuevo en el menú o una red nueva = un cambio en la plantilla, no 22.
+
+El JSON-LD `FAQPage` de [preguntas-frecuentes.html](preguntas-frecuentes.html) también lo genera `sincroniza.py` desde el texto visible: cambia solo la pregunta/respuesta en el HTML. `check-seo.py` falla si algo está desincronizado.
 
 Cuando añadas una página nueva, añade también su URL en [sitemap.xml](sitemap.xml).
 
 ## Una página por Mirada y por evento
 
-- **Miradas**: cada reseña vive en `miradas/<titulo>.html` (JSON-LD `Review` con su `url`). [la-mirada.html](la-mirada.html) es solo el índice: kicker, título enlazado, director · año, frase-resumen y "Leer la mirada →". Al añadir una mirada nueva: crea su página copiando otra de `miradas/`, añádela al índice, a las píldoras "otras miradas" del pie de las demás, a la lista de slugs del script de redirección de `la-mirada.html` (enlaces antiguos `#slug`) y al sitemap.
-- **Eventos**: cada Live/Rewind vive en `eventos/live-<tema>.html` o `eventos/rewind-<pelicula>.html`, con su JSON-LD `Event`/`ScreeningEvent` (el JSON-LD de evento va **solo** ahí, no en `live.html`/`rewind.html`). En los índices [live.html](live.html) y [rewind.html](rewind.html) el título y el cartel de cada evento enlazan a su página. Cuando un evento pasa: en su página cambia "Próximo evento" por "Evento anterior" y quita el botón de entradas y el `offers` del JSON-LD; en el índice pásalo al bloque de anteriores.
+- **Miradas**: cada reseña vive en `miradas/<titulo>.html` (JSON-LD `Review` con su `url`). [la-mirada.html](la-mirada.html) es solo el índice: kicker, título enlazado, director · año, frase-resumen y "Leer la mirada →". Al añadir una mirada nueva: crea su página copiando otra de `miradas/`, añádela al índice, a las píldoras "otras miradas" del pie de las demás y al sitemap (`check-seo.py` avisa si falta alguna).
+- **Eventos**: cada Live/Rewind vive en `eventos/live-<tema>.html` o `eventos/rewind-<pelicula>.html`, con su JSON-LD `Event`/`ScreeningEvent` (el JSON-LD de evento va **solo** ahí, no en `live.html`/`rewind.html`). En los índices [live.html](live.html) y [rewind.html](rewind.html) el título y el cartel de cada evento enlazan a su página. Cuando un evento pasa: en su página cambia "Próximo evento" por "Evento anterior" y quita el botón de entradas y el `offers` del JSON-LD; en el índice pásalo al bloque de anteriores. `check-seo.py` falla si un evento pasado sigue como próximo (o al revés), y si queda algún marcador `PENDIENTE…`: úsalo para datos que faltan (p. ej. `PENDIENTE_ENLACE_ENTRADAS`) y así no se publica sin querer.
 - Las páginas en subcarpetas usan rutas `../` (CSS, JS, imágenes, menú). `check-seo.py` revisa también las subcarpetas y que el canonical coincida con la ruta del fichero.
 
 ## Verificación antes de hacer commit/push
 
-Ejecuta siempre, tras crear o modificar cualquier página:
+Ejecuta siempre, tras crear o modificar cualquier página (`publica.py` lo hace también, pero conviene verlo antes):
 
 ```
+python sincroniza.py
 python check-seo.py
 ```
 
@@ -52,10 +59,17 @@ Actualiza luego todas las referencias (`<img src>`, `og:image`, JSON-LD) al nuev
 
 ## Al publicar (commit + push)
 
-0. **Antes de nada**: `git pull --rebase` — el Action de la agenda hace commits solos en `main`.
-1. **Antes del commit**: `python actualiza-sitemap.py` — pone en cada URL del `sitemap.xml` su `<lastmod>` (fecha del último cambio en git, o hoy si tiene cambios sin comitear). Luego `python check-seo.py`.
-2. **Después del push**, cuando GitHub Pages haya desplegado (1-2 min; comprueba con `curl` que una página cambiada ya sirve la versión nueva): `python indexnow.py` — avisa a Bing vía IndexNow de las páginas HTML cambiadas en el último commit (`--todas` para todo el sitemap, o pasa rutas concretas). Google no usa IndexNow: para algo urgente, el usuario pide la indexación a mano en Search Console.
-3. El fichero `<32 hex>.txt` de la raíz es la clave de IndexNow: no lo borres ni lo renombres.
+Solo cuando el usuario lo pida ("publica", "sube"), y en un único paso:
+
+```
+python publica.py "Mensaje del commit"
+```
+
+[publica.py](publica.py) hace, en orden y parando si algo falla: `git pull --rebase --autostash` (el Action de la agenda comitea solo en `main`) → `sincroniza.py` → `actualiza-agenda.py` → `actualiza-sitemap.py` (`<lastmod>` = último cambio real de cada página; un cambio que solo toca el `?v=` no cuenta) → `check-seo.py` → `git add -A`, commit y push. Al terminar recuerda Google Business y Meetup si se tocó `eventos/`.
+
+Después del push no hay nada que hacer: el Action [indexnow.yml](.github/workflows/indexnow.yml) avisa a Bing vía IndexNow cuando GitHub Pages termina de desplegar (páginas HTML del último commit). Haz un solo commit por publicación para que no se quede ninguna sin avisar. A mano sigue funcionando `python indexnow.py --todas` (todo el sitemap) o con rutas concretas. Google no usa IndexNow: para algo urgente, el usuario pide la indexación a mano en Search Console.
+
+El fichero `<32 hex>.txt` de la raíz es la clave de IndexNow: no lo borres ni lo renombres.
 
 ## Páginas ocultas (solo con enlace)
 
@@ -63,5 +77,5 @@ Actualiza luego todas las referencias (`<img src>`, `og:image`, JSON-LD) al nuev
 - [agenda.html](agenda.html): página del QR para bares (`https://taquillasiete.com/agenda`, URL fija). Muestra la próxima Sesión, Live y Rewind (una de cada) y un calendario con hoy y esos días. Lee `agenda.json`, que genera [actualiza-agenda.py](actualiza-agenda.py):
   - **Sesiones**: del Google Calendar público del club, pero **solo** los eventos con un año entre paréntesis en el título ("Película (1999)"). El usuario no quiere que salga nada más del calendario.
   - **Live y Rewind**: del JSON-LD de `eventos/*.html` (no del calendario).
-  - Un GitHub Action ([.github/workflows/agenda.yml](.github/workflows/agenda.yml)) lo regenera cada 6 h y hace commit si cambia. Al crear o tocar una página de `eventos/`, ejecuta también `python actualiza-agenda.py` antes de comitear.
+  - Un GitHub Action ([.github/workflows/agenda.yml](.github/workflows/agenda.yml)) lo regenera cada 6 h y en cada push que toque `eventos/`, y hace commit si cambia (`publica.py` ya lo regenera en local antes, así que normalmente no hay nada que comitear).
   - La página oculta cada evento 3 h después de su inicio aunque el JSON no se haya regenerado.

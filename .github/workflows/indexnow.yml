@@ -1,0 +1,23 @@
+# Avisa a Bing vía IndexNow de las páginas cambiadas en cuanto GitHub Pages termina
+# de desplegar (sustituye a lanzar python indexnow.py a mano tras cada push).
+name: IndexNow
+
+on:
+  deployment_status:
+
+jobs:
+  indexnow:
+    if: github.event.deployment_status.state == 'success' && github.event.deployment.environment == 'github-pages'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.deployment.sha }}
+          fetch-depth: 2
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Avisa de las páginas del último commit
+        run: python indexnow.py

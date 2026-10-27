@@ -22,7 +22,7 @@
 <meta name="twitter:image" content="https://taquillasiete.com/assets/logos/og-taquilla-siete.jpg">
 <link rel="icon" href="favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="stylesheet" href="css/style.css?v=9">
+<link rel="stylesheet" href="css/style.css?v=7e9f344b">
 <script data-goatcounter="https://taquillasiete.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script type="application/ld+json">
 {
@@ -48,7 +48,43 @@
 </head>
 <body>
 
-<!-- Copia aquí la cabecera (header.site-header) y el pie de otra página existente para mantener consistencia. -->
+<!-- Cabecera, pie, JSON-LD Organization y ?v= salen de esta plantilla: cámbialos aquí y ejecuta python sincroniza.py
+     (los copia a todas las páginas, ajustando las rutas en subcarpetas y en 404.html). -->
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./">
+      <img src="assets/logos/logo-marino.png" alt="Logo Taquilla Siete" width="1080" height="1080">
+      <span>Taquilla Siete</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">☰</button>
+    <nav class="nav-links" id="menu-principal">
+      <a href="./#historia">Club</a>
+      <a href="./#actividades">Actividades</a>
+      <a href="./#calendario">Calendario</a>
+      <a href="./#siguenos">Síguenos</a>
+      <span class="nav-separador" aria-hidden="true"></span>
+      <div class="nav-mas">
+        <button class="nav-mas-boton" type="button" aria-expanded="false">Más</button>
+        <div class="nav-mas-menu">
+          <a href="invitados">Invitados</a>
+          <a href="la-mirada">Miradas</a>
+          <a href="actualidad">Actualidad</a>
+          <a href="preguntas-frecuentes">Preguntas</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
 
+<!-- CONTENIDO DE LA PÁGINA (secciones; menciona Madrid en el texto visible) -->
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© <span id="anio">2026</span> Taquilla Siete — Club de Cine · <a href="preguntas-frecuentes">Preguntas frecuentes</a></p>
+  </div>
+</footer>
+
+<script src="js/main.js?v=d39c9987"></script>
+<script>document.getElementById("anio").textContent = new Date().getFullYear();</script>
 </body>
 </html>

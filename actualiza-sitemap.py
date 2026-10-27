@@ -18,13 +18,27 @@ BASE = "https://taquillasiete.com/"
 
 
 def git(*args: str) -> str:
-    return subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True, check=True).stdout.strip()
+    return subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True, encoding="utf-8", check=True).stdout.strip()
+
+
+def cambio_real(diff: str) -> bool:
+    """False si el diff solo cambia el ?v= del CSS/JS (sincroniza.py lo toca en todas las páginas a la vez)."""
+    quita = lambda signo: sorted(
+        re.sub(r"\?v=[^\"']*", "", l[1:]).strip() for l in diff.splitlines()
+        if l.startswith(signo) and not l.startswith(signo * 3)
+    )
+    return quita("-") != quita("+")
 
 
 def lastmod(rel: str) -> str:
-    if git("status", "--porcelain", "--", rel):
+    estado = git("status", "--porcelain", "--", rel)
+    if estado.startswith("??") or (estado and cambio_real(git("diff", "HEAD", "-U0", "--", rel))):
         return date.today().isoformat()
-    return git("log", "-1", "--format=%cs", "--", rel) or date.today().isoformat()
+    for linea in git("log", "--format=%H %cs", "--", rel).splitlines():
+        commit, fecha = linea.split()
+        if cambio_real(git("show", "--format=", "-U0", commit, "--", rel)):
+            return fecha
+    return date.today().isoformat()
 
 
 def main() -> int:
