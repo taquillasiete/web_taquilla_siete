@@ -803,6 +803,100 @@ section {
   letter-spacing: 0.06em;
 }
 
+/* Preguntas frecuentes */
+.faq-wrap {
+  max-width: 760px;
+}
+
+.faq-grupo {
+  margin-bottom: 3rem;
+}
+
+.faq-grupo h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.faq {
+  border-bottom: 1px solid var(--azul-claro);
+}
+
+.faq summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  font-family: var(--font-titulo);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--azul-marino);
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: "+";
+  font-family: var(--font-texto);
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--azul-marino-suave);
+  transition: transform var(--transicion);
+}
+
+.faq[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq-respuesta {
+  padding-bottom: 1.2rem;
+  color: var(--azul-marino-suave);
+}
+
+.faq-respuesta p + p,
+.faq-respuesta ul {
+  margin-top: 0.7rem;
+}
+
+.faq-respuesta ul {
+  padding-left: 1.2rem;
+}
+
+.faq-respuesta li {
+  margin-bottom: 0.6rem;
+}
+
+.faq-respuesta a {
+  color: var(--azul-marino);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--azul-claro);
+  text-underline-offset: 3px;
+}
+
+.contacto-faq {
+  margin-top: 2.5rem;
+  font-size: 0.9rem;
+}
+
+.contacto-faq a {
+  color: var(--blanco);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--azul-claro);
+  text-underline-offset: 3px;
+}
+
+.site-footer a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* Contacto */
 .contacto {
   background: var(--azul-marino);
