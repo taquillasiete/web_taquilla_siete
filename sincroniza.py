@@ -70,7 +70,8 @@ def ajusta_rutas(fragmento: str, m: str) -> str:
 
 
 def version(fichero: str) -> str:
-    return hashlib.sha1((ROOT / fichero).read_bytes()).hexdigest()[:8]
+    # Sin \r: git en Windows deja CRLF y en GitHub Actions LF, y el hash tiene que coincidir
+    return hashlib.sha1((ROOT / fichero).read_bytes().replace(b"\r\n", b"\n")).hexdigest()[:8]
 
 
 def texto_plano(fragmento: str) -> str:

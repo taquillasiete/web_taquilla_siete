@@ -88,6 +88,54 @@ def check_eventos() -> list[str]:
     return problems
 
 
+def destino(ruta: str, desde: Path) -> Path | None:
+    """Fichero al que lleva un enlace interno (URL limpia sin .html, carpeta -> index.html); None si no existe."""
+    base = ROOT if ruta.startswith("/") else desde.parent
+    p = (base / ruta.lstrip("/")).resolve()
+    for candidato in (p, p.with_name(p.name + ".html"), p / "index.html"):
+        if candidato.is_file() and candidato.is_relative_to(ROOT.resolve()):
+            return candidato
+    return None
+
+
+def check_enlaces(paginas: list[Path]) -> list[str]:
+    """Enlaces internos rotos (href/src, URLs absolutas a taquillasiete.com y url() del CSS) y anclas #id que no existen."""
+    problems = []
+    ids = {}
+
+    def ids_de(p: Path) -> set[str]:
+        if p not in ids:
+            ids[p] = set(re.findall(r'\bid="([^"]+)"', p.read_text(encoding="utf-8")))
+        return ids[p]
+
+    def revisa(valor: str, pagina: Path, rel: str) -> None:
+        original = valor
+        if valor.startswith("https://taquillasiete.com"):
+            valor = valor.removeprefix("https://taquillasiete.com") or "/"
+        elif re.match(r"([a-z]+:|//)", valor) or "${" in valor:
+            return  # externo, mailto:, tel:, data:... o plantilla JS (agenda.html)
+        ruta, _, ancla = valor.split("?")[0].partition("#")
+        fichero = destino(ruta, pagina) if ruta else pagina
+        if not fichero:
+            problems.append(f"{rel}: enlace roto \"{original}\"")
+        elif ancla and fichero.suffix == ".html" and ancla not in ids_de(fichero):
+            problems.append(f"{rel}: el ancla \"#{ancla}\" no existe en {fichero.relative_to(ROOT.resolve()).as_posix()}")
+
+    for pagina in paginas:
+        rel = pagina.relative_to(ROOT).as_posix()
+        texto = pagina.read_text(encoding="utf-8")
+        valores = re.findall(r'\b(?:href|src)="([^"]*)"', texto)
+        valores += re.findall(r'"(https://taquillasiete\.com[^"]*)"', texto)
+        for valor in sorted(set(valores)):
+            revisa(valor, pagina, rel)
+
+    css = ROOT / "css" / "style.css"
+    for valor in sorted(set(re.findall(r'url\("?([^")]+)"?\)', css.read_text(encoding="utf-8")))):
+        if not valor.startswith("#"):  # url(#duotono) es un filtro SVG de la propia página
+            revisa(valor, css, "css/style.css")
+    return problems
+
+
 def check_miradas() -> list[str]:
     problems = []
     slugs = sorted(p.stem for p in (ROOT / "miradas").glob("*.html"))
@@ -146,10 +194,11 @@ def main() -> int:
             ok = False
             print(f"[SITEMAP HUÉRFANO] {loc} no corresponde a ningún fichero HTML existente")
 
-    otros = check_eventos() + check_miradas()
+    redirecciones = [p for p in ROOT.glob("*.html") if 'http-equiv="refresh"' in p.read_text(encoding="utf-8")]
+    otros = check_eventos() + check_miradas() + check_enlaces(html_files + redirecciones)
     if otros:
         ok = False
-        print("\n[EVENTOS / MIRADAS]")
+        print("\n[EVENTOS / MIRADAS / ENLACES]")
         for p in otros:
             print(f"   - {p}")
 

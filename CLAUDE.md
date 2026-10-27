@@ -47,7 +47,9 @@ python sincroniza.py
 python check-seo.py
 ```
 
-Este script ([check-seo.py](check-seo.py)) revisa automáticamente que ninguna página se quede "descolgada": comprueba GoatCounter, canonical, Open Graph, Twitter Card, JSON-LD Organization, mención de Madrid, alt en imágenes, que el `sitemap.xml` esté sincronizado con los ficheros HTML reales (sin huecos ni huérfanos), y que ninguna imagen en `assets/` pese más de 300KB. Sale con código de error si falta algo — soluciónalo antes de comitear.
+Este script ([check-seo.py](check-seo.py)) revisa automáticamente que ninguna página se quede "descolgada": comprueba GoatCounter, canonical, Open Graph, Twitter Card, JSON-LD Organization, mención de Madrid, alt en imágenes, que el `sitemap.xml` esté sincronizado con los ficheros HTML reales (sin huecos ni huérfanos), que ninguna imagen en `assets/` pese más de 300KB, y que no haya **enlaces internos rotos** (href/src, URLs absolutas a taquillasiete.com en OG/JSON-LD, `url()` del CSS y anclas `#id`). Sale con código de error si falta algo — soluciónalo antes de comitear.
+
+El Action [check-seo.yml](.github/workflows/check-seo.yml) lo pasa también en cada push a `main` (por si se sube algo sin `publica.py`, p. ej. desde la web de GitHub). Si falla, GitHub avisa por email: la web ya está publicada, así que arréglalo y vuelve a subir.
 
 Si el script marca una imagen pesada, conviértela a WebP con Pillow (`pip install Pillow`):
 ```python
