@@ -32,7 +32,7 @@ def main() -> int:
 
     def update(m: re.Match) -> str:
         loc = m.group(2)
-        rel = loc.removeprefix(BASE) or "index.html"
+        rel = loc.removeprefix(BASE) + ".html" if loc != BASE else "index.html"
         if not (ROOT / rel).exists():
             print(f"[AVISO] {loc} no corresponde a ningún fichero (revisa con check-seo.py)")
             return m.group(0)

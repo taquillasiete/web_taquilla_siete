@@ -61,7 +61,8 @@ def main() -> int:
         problems = check_file(f)
 
         rel = f.relative_to(ROOT).as_posix()
-        expected_loc = "https://taquillasiete.com/" if rel == "index.html" else f"https://taquillasiete.com/{rel}"
+        # URLs limpias: sin .html (GitHub Pages sirve /pagina igual que /pagina.html)
+        expected_loc = "https://taquillasiete.com/" if rel == "index.html" else f"https://taquillasiete.com/{rel.removesuffix('.html')}"
         if f'<link rel="canonical" href="{expected_loc}">' not in f.read_text(encoding="utf-8"):
             problems.append(f"el canonical no coincide con su URL ({expected_loc})")
         oculta = '<meta name="robots" content="noindex">' in f.read_text(encoding="utf-8")
@@ -80,7 +81,8 @@ def main() -> int:
 
     known_files = {f.relative_to(ROOT).as_posix() for f in html_files} | {"index.html"}
     for loc in sitemap_locs:
-        name = loc.removeprefix("https://taquillasiete.com/") or "index.html"
+        path = loc.removeprefix("https://taquillasiete.com/")
+        name = f"{path}.html" if path else "index.html"
         if name not in known_files:
             ok = False
             print(f"[SITEMAP HUÉRFANO] {loc} no corresponde a ningún fichero HTML existente")

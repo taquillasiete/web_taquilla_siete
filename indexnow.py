@@ -27,7 +27,7 @@ SKIP = {"_template.html", "plantilla.html"}
 
 
 def url_de(rel: str) -> str:
-    return BASE if rel == "index.html" else BASE + rel
+    return BASE if rel == "index.html" else BASE + rel.removesuffix(".html")
 
 
 def main() -> int:

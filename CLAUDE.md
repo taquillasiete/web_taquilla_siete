@@ -7,7 +7,7 @@ Sitio estático (HTML/CSS/JS plano, sin build), desplegado en GitHub Pages con d
 Cada página del sitio debe llevar siempre, en su `<head>`:
 
 1. El script de **GoatCounter** (analítica): `<script data-goatcounter="https://taquillasiete.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>`
-2. `<link rel="canonical">` con su URL real en `https://taquillasiete.com/...`
+2. `<link rel="canonical">` con su URL real en `https://taquillasiete.com/...`, **sin `.html`** (`/sesiones`, `/eventos/live-tema`; la portada es `/`). Igual en `og:url`, JSON-LD, `sitemap.xml` y enlaces internos (`href="sesiones"`, `href="./#contacto"`, `href="../"`). GitHub Pages sirve las dos formas; la canónica es la limpia
 3. Etiquetas **Open Graph** (`og:title`, `og:description`, `og:image`, `og:url`) y **Twitter Card**
 4. Un bloque **JSON-LD** `"@type": "Organization"` (datos estructurados, importante para que Google e IAs como ChatGPT/Perplexity citen el sitio correctamente)
 5. Mención de **"Madrid"** en el contenido visible de la página (SEO local — ver conversación sobre posicionamiento)
