@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=7">
+<link rel="stylesheet" href="css/style.css?v=8">
 <script data-goatcounter="https://taquillasiete.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <script type="application/ld+json">
 {
@@ -62,9 +62,15 @@
       <a href="./#calendario">Calendario</a>
       <a href="./#siguenos">Síguenos</a>
       <span class="nav-separador" aria-hidden="true"></span>
-      <a href="invitados">Invitados</a>
-      <a href="la-mirada">Miradas</a>
-      <a href="actualidad">Actualidad</a>
+      <div class="nav-mas">
+        <button class="nav-mas-boton" type="button" aria-expanded="false">Más</button>
+        <div class="nav-mas-menu">
+          <a href="invitados">Invitados</a>
+          <a href="la-mirada">Miradas</a>
+          <a href="actualidad">Actualidad</a>
+          <a href="preguntas-frecuentes">Preguntas</a>
+        </div>
+      </div>
     </nav>
   </div>
 </header>
@@ -158,7 +164,7 @@
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script src="js/main.js?v=2"></script>
 <script>document.getElementById("anio").textContent = new Date().getFullYear();</script>
 </body>
 </html>

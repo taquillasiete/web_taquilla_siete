@@ -23,6 +23,29 @@ if (navToggle && navLinks) {
   });
 }
 
+// Desplegable "Más" (escritorio): se abre con hover o clic; se cierra al hacer clic fuera o con Esc
+const navMas = document.querySelector(".nav-mas");
+
+if (navMas) {
+  const boton = navMas.querySelector(".nav-mas-boton");
+  const cerrar = () => {
+    navMas.classList.remove("abierto");
+    boton.setAttribute("aria-expanded", "false");
+  };
+
+  boton.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const abierto = navMas.classList.toggle("abierto");
+    boton.setAttribute("aria-expanded", String(abierto));
+  });
+  document.addEventListener("click", (e) => {
+    if (!navMas.contains(e.target)) cerrar();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") cerrar();
+  });
+}
+
 // Reveal on scroll
 const revealEls = document.querySelectorAll(".reveal");
 

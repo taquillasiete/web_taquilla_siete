@@ -162,6 +162,61 @@ h1, h2, h3 {
   opacity: 0.25;
 }
 
+/* Desplegable "Más": páginas aparte (Invitados, Miradas, Actualidad, Preguntas) */
+.nav-mas {
+  position: relative;
+}
+
+.nav-mas-boton {
+  background: none;
+  border: none;
+  padding: 0 0 4px;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.nav-mas-boton::after {
+  content: " ▾";
+  font-size: 0.8em;
+}
+
+.nav-mas-menu {
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  right: -1rem;
+  display: none;
+  flex-direction: column;
+  gap: 0.9rem;
+  min-width: 11rem;
+  padding: 1rem 1.2rem;
+  background: rgba(156, 192, 204, 0.97);
+  border: 1px solid rgba(38, 56, 78, 0.12);
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(38, 56, 78, 0.12);
+}
+
+/* Puente invisible para que el menú no se cierre al bajar el ratón */
+.nav-mas-menu::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -0.7rem;
+  height: 0.7rem;
+}
+
+.nav-mas-menu a {
+  align-self: flex-start;
+}
+
+.nav-mas:hover .nav-mas-menu,
+.nav-mas.abierto .nav-mas-menu {
+  display: flex;
+}
+
 .nav-toggle {
   display: none;
   background: none;
@@ -1101,6 +1156,27 @@ section {
     width: 100%;
     height: 1px;
     margin: 0.2rem 0;
+  }
+
+  /* En el menú móvil, "Más" no se despliega: sus enlaces van directamente en la lista */
+  .nav-mas-boton {
+    display: none;
+  }
+
+  .nav-mas-menu,
+  .nav-mas:hover .nav-mas-menu {
+    position: static;
+    display: flex;
+    gap: 1.2rem;
+    min-width: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+  }
+
+  .nav-mas-menu::before {
+    display: none;
   }
 }
 
