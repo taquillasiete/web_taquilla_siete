@@ -842,16 +842,47 @@ section {
 .redes a svg {
   width: 20px;
   height: 20px;
+  flex-shrink: 0;
 }
 
-.redes a.red-destacada {
-  background: var(--azul-claro);
-  color: var(--azul-marino);
+/* Contacto en tres grupos (planes, escríbenos, más del club) */
+.contacto-grupos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 1rem;
 }
 
-.redes a.red-destacada:hover {
-  background: var(--blanco);
-  border-color: var(--blanco);
+.contacto-grupo h3 {
+  color: var(--blanco);
+  font-size: 1.3rem;
+  margin-bottom: 0.4rem;
+}
+
+.contacto-grupo p {
+  font-size: 0.9rem;
+  max-width: 34ch;
+  margin: 0 auto;
+}
+
+.contacto-grupo .redes {
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 1.4rem;
+}
+
+.contacto-grupo .redes a {
+  justify-content: center;
+  width: 15rem;
+  max-width: 100%;
+}
+
+@media (max-width: 860px) {
+  .contacto-grupos {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+  }
 }
 
 /* Footer */
