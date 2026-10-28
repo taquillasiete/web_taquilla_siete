@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add("js")</script>
+<!-- Página oculta (solo con enlace, para los miembros del club): sin enlaces desde la web, fuera del sitemap y noindex. -->
+<meta name="robots" content="noindex">
+<title>Buzón del club — Taquilla Siete</title>
+<meta name="description" content="Buzón anónimo de sugerencias y quejas para los miembros de Taquilla Siete, club de cine en Madrid.">
+<link rel="canonical" href="https://taquillasiete.com/buzon">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Taquilla Siete">
+<meta property="og:locale" content="es_ES">
+<meta property="og:url" content="https://taquillasiete.com/buzon">
+<meta property="og:title" content="Buzón del club — Taquilla Siete">
+<meta property="og:description" content="Buzón anónimo de sugerencias y quejas para los miembros de Taquilla Siete, club de cine en Madrid.">
+<meta property="og:image" content="https://taquillasiete.com/assets/logos/og-taquilla-siete.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Buzón del club — Taquilla Siete">
+<meta name="twitter:description" content="Buzón anónimo de sugerencias y quejas para los miembros de Taquilla Siete, club de cine en Madrid.">
+<meta name="twitter:image" content="https://taquillasiete.com/assets/logos/og-taquilla-siete.jpg">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="css/style.css?v=6f49fa1a">
+<script data-goatcounter="https://taquillasiete.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Taquilla Siete",
+  "alternateName": "Taquilla Siete — Club de Cine",
+  "url": "https://taquillasiete.com/",
+  "logo": "https://taquillasiete.com/assets/logos/taquilla-siete-logo.jpg",
+  "email": "hola@taquillasiete.com",
+  "foundingDate": "2023-09",
+  "description": "Club de cine en Madrid: tertulias quincenales, eventos en directo (Live) y proyecciones con coloquio (Rewind).",
+  "address": { "@type": "PostalAddress", "addressLocality": "Madrid", "addressCountry": "ES" },
+  "sameAs": [
+    "https://www.instagram.com/taquillasiete/",
+    "https://letterboxd.com/danimp5/list/club-de-cine-taquilla-siete/",
+    "https://www.meetup.com/taquilla-siete-club-de-cine-en-madrid/",
+    "https://www.google.com/maps?cid=17678591555669489135",
+    "https://www.eventbrite.es/o/taquilla-siete-121695485773"
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./">
+      <img src="assets/logos/logo-marino.png" alt="Logo Taquilla Siete" width="1080" height="1080">
+      <span>Taquilla Siete</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">☰</button>
+    <nav class="nav-links" id="menu-principal">
+      <a href="./#historia">Club</a>
+      <a href="./#actividades">Actividades</a>
+      <a href="./#calendario">Calendario</a>
+      <a href="./#siguenos">Síguenos</a>
+      <span class="nav-separador" aria-hidden="true"></span>
+      <div class="nav-mas">
+        <button class="nav-mas-boton" type="button" aria-expanded="false">Más</button>
+        <div class="nav-mas-menu">
+          <a href="invitados">Invitados</a>
+          <a href="la-mirada">Miradas</a>
+          <a href="actualidad">Actualidad</a>
+          <a href="preguntas-frecuentes">Preguntas</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="actividad-hero">
+  <div class="wrap">
+    <p class="eyebrow">Solo para el club · Anónimo</p>
+    <h1>Buzón del club</h1>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="actividad-cuerpo reveal">
+      <p>Este es el buzón de Taquilla Siete, nuestro club de cine en Madrid. ¿Algo que mejorarías, algo que no te ha gustado o una idea para el club? Escríbelo aquí. No pedimos nombre ni email: el mensaje nos llega por correo sin ningún dato tuyo, y lo leemos todo.</p>
+    </div>
+
+    <!-- Envío vía Web3Forms (https://web3forms.com): la clave pública va asociada al email de destino, que no aparece en la página. -->
+    <form class="buzon actividad-cuerpo reveal mt-s" id="buzon" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="f1e725b2-2640-457d-8de3-3b7a2a363bea">
+      <input type="hidden" name="subject" value="Buzón del club (taquillasiete.com)">
+      <input type="hidden" name="from_name" value="Buzón anónimo de Taquilla Siete">
+      <input type="checkbox" name="botcheck" class="buzon-trampa" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <fieldset>
+        <legend>Es una…</legend>
+        <div class="buzon-opciones">
+          <label><input type="radio" name="tipo" value="Sugerencia" required> Sugerencia</label>
+          <label><input type="radio" name="tipo" value="Queja"> Queja</label>
+          <label><input type="radio" name="tipo" value="Otra cosa"> Otra cosa</label>
+        </div>
+      </fieldset>
+
+      <label for="buzon-sobre">Sobre</label>
+      <select id="buzon-sobre" name="sobre">
+        <option value="El club en general">El club en general</option>
+        <option value="Sesiones">Sesiones</option>
+        <option value="Live">Live</option>
+        <option value="Rewind">Rewind</option>
+      </select>
+
+      <label for="buzon-mensaje">Tu mensaje</label>
+      <textarea id="buzon-mensaje" name="mensaje" rows="7" required maxlength="5000"></textarea>
+
+      <label for="buzon-contacto">Contacto <span class="buzon-opcional">(opcional, solo si quieres respuesta; si lo dejas, ya no es anónimo)</span></label>
+      <input type="text" id="buzon-contacto" name="contacto" autocomplete="off">
+
+      <button type="submit">Enviar</button>
+      <p class="buzon-estado" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© <span id="anio">2026</span> Taquilla Siete — Club de Cine · <a href="preguntas-frecuentes">Preguntas frecuentes</a></p>
+  </div>
+</footer>
+
+<script src="js/main.js?v=18c8bb76"></script>
+<script>document.getElementById("anio").textContent = new Date().getFullYear();</script>
+<script>
+// Envío sin salir de la página; sin JS, el formulario se envía igual a Web3Forms.
+const buzon = document.getElementById("buzon");
+const estado = buzon.querySelector(".buzon-estado");
+buzon.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const boton = buzon.querySelector("button");
+  boton.disabled = true;
+  estado.textContent = "Enviando…";
+  try {
+    const r = await fetch(buzon.action, { method: "POST", headers: { Accept: "application/json" }, body: new FormData(buzon) });
+    const datos = await r.json();
+    if (!datos.success) throw new Error(datos.message);
+    buzon.reset();
+    estado.textContent = "Recibido. Gracias por escribirnos.";
+  } catch {
+    estado.textContent = "No se ha podido enviar. Inténtalo de nuevo en un rato.";
+  }
+  boton.disabled = false;
+});
+</script>
+</body>
+</html>

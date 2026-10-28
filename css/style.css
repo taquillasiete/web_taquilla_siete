@@ -456,6 +456,95 @@ section {
   color: var(--blanco);
 }
 
+/* Buzón del club (buzon.html) */
+.buzon {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.buzon fieldset {
+  border: none;
+  margin-bottom: 1rem;
+}
+
+.buzon legend,
+.buzon > label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.buzon > label {
+  margin-top: 0.8rem;
+}
+
+.buzon-opciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.6rem;
+  margin-top: 0.6rem;
+  color: var(--azul-marino-suave);
+}
+
+.buzon-opcional {
+  font-weight: 400;
+  color: var(--azul-marino-suave);
+}
+
+.buzon select,
+.buzon textarea,
+.buzon input[type="text"] {
+  font: inherit;
+  color: var(--azul-marino);
+  background: var(--crema);
+  border: 1px solid var(--azul-claro);
+  border-radius: 10px;
+  padding: 0.7rem 0.9rem;
+  width: 100%;
+}
+
+.buzon textarea {
+  resize: vertical;
+}
+
+.buzon input[type="radio"] {
+  accent-color: var(--azul-marino);
+}
+
+.buzon button {
+  align-self: center;
+  margin-top: 1.5rem;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--azul-marino);
+  background: none;
+  padding: 0.7rem 1.8rem;
+  border: 1px solid var(--azul-marino);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background var(--transicion), color var(--transicion);
+}
+
+.buzon button:hover:not(:disabled) {
+  background: var(--azul-marino);
+  color: var(--blanco);
+}
+
+.buzon button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+.buzon-estado {
+  text-align: center;
+  min-height: 1.6em;
+}
+
+.buzon-trampa {
+  display: none;
+}
+
 /* Mosaico de fotos */
 .mosaico {
   display: grid;
