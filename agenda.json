@@ -1,12 +1,6 @@
 {
-  "actualizado": "2026-11-03T17:29:29+00:00",
+  "actualizado": "2026-11-05T06:58:19+00:00",
   "eventos": [
-    {
-      "tipo": "sesion",
-      "titulo": "Rocky Horror Picture Show (1975)",
-      "inicio": "2026-11-04T19:00",
-      "lugar": "Lolina Vintage Café"
-    },
     {
       "tipo": "rewind",
       "titulo": "Bahía de sangre (Mario Bava, 1971)",
