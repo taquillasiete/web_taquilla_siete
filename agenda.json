@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-05T06:58:19+00:00",
+  "actualizado": "2026-11-09T22:29:05+00:00",
   "eventos": [
     {
       "tipo": "rewind",
@@ -13,6 +13,12 @@
       "tipo": "sesion",
       "titulo": "Sesión especial WritersWeekend. Bailame el agua (2000) con Josecho San Mateo",
       "inicio": "2026-11-17T19:00",
+      "lugar": "Lolina Vintage Café"
+    },
+    {
+      "tipo": "sesion",
+      "titulo": "Fanny y Alexander (1982)",
+      "inicio": "2026-11-18T19:00",
       "lugar": "Lolina Vintage Café"
     },
     {
